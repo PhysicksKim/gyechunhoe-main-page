@@ -1,9 +1,9 @@
 import React from 'react';
-import AdminPageRoot from './AdminPageRoot';
+import IndexPageRoot from './IndexPageRoot';
 import '@styles/Application.scss';
 
 const Application: React.FC = () => {
-  return <AdminPageRoot></AdminPageRoot>;
+  return <IndexPageRoot></IndexPageRoot>;
 };
 
 export default Application;
