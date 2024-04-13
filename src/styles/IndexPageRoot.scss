@@ -22,11 +22,11 @@
 }
 
 .header {
-  background-image: url(/assets/images/tree01.png);
+  background-image: url(/assets/image/tree01.png);
   background-size: 73vh;
-  background-position: 0 0.2vh;
+  background-position-x: 100px;
+  background-position-y: 0.2vh;
   height: 100vh;
-  border: 1px solid red;
   width: calc(100%);
   position: relative;
   background-position-x: left;
@@ -34,18 +34,16 @@
 
   .board {
     position: absolute;
-    background-image: url(/assets/images/board02.png);
+    background-image: url(/assets/image/board02_colorchange.png);
+    // background-image: url(/assets/image/board02.png);
     background-repeat: no-repeat;
     background-size: 73vh;
-    background-position: 0 0vh;
+    background-position: 0 0.2vh;
     top: 0;
     left: 0;
 
-    border: 3px solid blue;
     height: 100vh;
     width: 100%;
-
-    // background-color: beige;
 
     .btn-concert,
     .btn-football {
@@ -75,9 +73,37 @@
     .btn-football:hover {
       transition-property: background-color, border;
       transition-duration: 0.1s;
-      // border: 1px solid red;
       background-color: rgba(255, 255, 255, 0.3);
       cursor: pointer;
+    }
+  }
+
+  .display-board-container {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 73vh;
+    background-position: 0 0vh;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 100%;
+
+    .display-board {
+      &.concert {
+        // background-image: url(/assets/image/displayboard_concert.png);
+        background-image: url(/assets/image/displayboard_concert_modi_01.png);
+      }
+      &.football {
+        // background-image: url(/assets/image/displayboard_football.png);
+        background-image: url(/assets/image/displayboard_football_modi_01.png);
+      }
+      background-repeat: no-repeat;
+      background-size: 47vh;
+      background-position-x: calc(54.7vh);
+      background-position-y: calc(10vh);
+      height: 100%;
+      width: 100%;
     }
   }
 }

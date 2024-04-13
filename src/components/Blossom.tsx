@@ -19,7 +19,7 @@ const Blossom = () => {
     const myBlossomSceneConfig: BlossomSceneConfig = {
       id: 'blossom_container',
       petalsTypes,
-      numPetals: 20,
+      numPetals: 46,
     };
 
     if (blossomContainerRef.current) {

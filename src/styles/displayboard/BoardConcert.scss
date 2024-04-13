@@ -1,0 +1,58 @@
+.board-concert-content {
+  position: relative;
+  box-sizing: border-box;
+  left: 60.1vh;
+  top: 13.8vh;
+  // border: 2px rgb(72, 34, 9) solid;
+
+  display: flex;
+  flex-direction: column;
+  width: 36.5vh;
+  height: 38vh;
+  align-items: center;
+
+  .concert-video {
+    position: absolute;
+    box-sizing: border-box;
+    top: 6vh;
+    border: 4px rgb(72, 34, 9) solid;
+    border-radius: 10px;
+    border-top-width: 5px;
+    border-left-width: 4px;
+    border-bottom-width: 2px;
+    width: 32.5vh;
+    object-fit: cover;
+  }
+
+  .display-board-btn-container {
+    box-sizing: border-box;
+    left: 0;
+    top: 5vh;
+    width: 100%;
+    height: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .display-board-btn {
+      position: absolute;
+      bottom: 1vh;
+      width: 14.3vh;
+      height: 7.8vh;
+      border-radius: 2vh;
+      border: none;
+      background-color: transparent;
+      z-index: 1;
+    }
+    .display-board-btn-move {
+      left: 3vh;
+    }
+    .display-board-btn-close {
+      right: 3vh;
+    }
+
+    .display-board-btn:hover {
+      background-color: rgba(255, 255, 255, 0.174);
+    }
+  }
+}

@@ -1,13 +1,13 @@
 // Blossom
 #blossom_container {
-  // background-color: #f1f1f1;
   position: absolute;
-  width: calc(110%);
-  height: calc(110%);
+  width: calc(100%);
+  height: calc(100%);
+  left: 0;
 }
 
 .petal {
-  background: url('/assets/images/cherry-blossom.png') no-repeat;
+  background: url('/assets/image/cherry-blossom.png') no-repeat;
 
   // &.petal-style1 {
   //   width: 45px;
