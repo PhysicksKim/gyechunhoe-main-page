@@ -11,16 +11,18 @@
   height: 38vh;
   align-items: center;
 
-  // .concert-video {
-  //   position: absolute;
-  //   box-sizing: border-box;
-  //   top: 10vh;
-  //   border: 3px rgb(72, 34, 9) solid;
-  //   border-radius: 4px;
-  //   border-top: 6px rgb(72, 34, 9) solid;
-  //   width: 28vh;
-  //   object-fit: cover;
-  // }
+  .football-video {
+    position: absolute;
+    box-sizing: border-box;
+    top: 6vh;
+    border: 4px rgb(72, 34, 9) solid;
+    border-radius: 10px;
+    border-top-width: 5px;
+    border-left-width: 4px;
+    border-bottom-width: 2px;
+    width: 32.5vh;
+    object-fit: cover;
+  }
 
   .display-board-btn-container {
     box-sizing: border-box;

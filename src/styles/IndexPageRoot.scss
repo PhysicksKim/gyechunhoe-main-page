@@ -49,8 +49,10 @@
     .btn-football {
       position: absolute;
       box-sizing: border-box;
-      background-color: transparent;
+      background-color: rgba(255, 255, 255, 0);
       border: none;
+
+      // overflow: hidden;
 
       height: calc(73vh - 66.9vh);
       width: calc(73vh - 56vh);
@@ -60,7 +62,19 @@
 
       border-radius: 1.5vh;
       z-index: 1;
+      transition: background-color 0.13s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        transition-duration: 0.13s;
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+
+      &.active {
+        background-color: rgba(204, 133, 133, 0.3);
+      }
     }
+
     .btn-concert {
       top: calc(73vh - 45.8vh);
       left: calc(73vh - 31.7vh);
@@ -68,13 +82,6 @@
     .btn-football {
       top: calc(73vh - 38.3vh);
       left: calc(73vh - 31.7vh);
-    }
-    .btn-concert:hover,
-    .btn-football:hover {
-      transition-property: background-color, border;
-      transition-duration: 0.1s;
-      background-color: rgba(255, 255, 255, 0.3);
-      cursor: pointer;
     }
   }
 

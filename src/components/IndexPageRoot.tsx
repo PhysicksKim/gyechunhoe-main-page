@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '@styles/IndexPageRoot.scss';
+import '@styles/IndexPageRootAnimation.scss';
 import Blossom from './Blossom';
 import BoardConcert from './displayboard/BoardConcert';
 import BoardFootball from './displayboard/BoardFootball';
+import { CSSTransition } from 'react-transition-group';
+import Button from './Button';
 
 type DisplayType = '' | 'concert' | 'football';
 
@@ -14,8 +17,6 @@ const IndexPageRoot = () => {
   const handleClick = (component: React.JSX.Element, type: DisplayType) => {
     if (nowShowing === type) {
       setShowDisplayBoard(false);
-      setDisplayComponent(null);
-      setNowShowing('');
     } else {
       setDisplayComponent(component);
       setShowDisplayBoard(true);
@@ -25,6 +26,9 @@ const IndexPageRoot = () => {
 
   const handleCloseDisplayBoard = () => {
     setShowDisplayBoard(false);
+  };
+
+  const handleExited = () => {
     setDisplayComponent(null);
     setNowShowing('');
   };
@@ -33,32 +37,38 @@ const IndexPageRoot = () => {
     <div className='main-background'>
       <div className='header'>
         <div className='board'>
-          <button
-            className='btn-concert'
+          <Button
+            type='concert'
             onClick={() =>
               handleClick(
                 <BoardConcert closeWindow={handleCloseDisplayBoard} />,
                 'concert',
               )
             }
-          ></button>
-          <button
-            className='btn-football'
+          />
+          <Button
+            type='football'
             onClick={() =>
               handleClick(
                 <BoardFootball closeWindow={handleCloseDisplayBoard} />,
                 'football',
               )
             }
-          ></button>
+          />
         </div>
-        {showDisplayBoard && (
+        <CSSTransition
+          in={showDisplayBoard}
+          timeout={500}
+          classNames='display-board'
+          unmountOnExit
+          onExited={handleExited}
+        >
           <div className='display-board-container'>
             <div className={`display-board ${nowShowing}`}>
               {displayComponent}
             </div>
           </div>
-        )}
+        </CSSTransition>
       </div>
       <Blossom />
     </div>

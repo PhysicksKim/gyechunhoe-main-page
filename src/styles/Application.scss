@@ -29,34 +29,12 @@ button {
   width: 100vw;
   height: 100vh;
 
-  .enter-curtain {
-    position: fixed;
-    background-image: url(/assets/image/first_concert_wide_poster.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(255, 255, 255);
-    mask-image: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(225, 225, 194, 0.85) 60%,
-      rgba(225, 225, 194, 0) 100%
-    );
-    z-index: -1;
-  }
-
   .audio-control {
     position: fixed;
-    // width: 1px;
-    // height: 1px;
-    // border: 1px solid red;
     box-sizing: border-box;
     z-index: 1;
 
-    // top: calc(100vh - 100px);
-    // left: calc(50% - 50px);
+    width: 130px;
     background-color: rgba(245, 245, 220, 0.436);
     color: black;
     padding: 6px;
@@ -67,6 +45,10 @@ button {
 
     display: flex;
     flex-direction: row;
+
+    > svg {
+      width: 20px;
+    }
 
     > input[type='range'] {
       box-sizing: border-box;
@@ -114,5 +96,40 @@ button {
     background-color: rgb(131, 207, 255);
     color: rgb(55, 53, 53);
     cursor: pointer;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 2vh;
+    box-sizing: border-box;
+    // width: calc(100vw - 6vw);
+    width: 100vw;
+    padding-left: 2vw;
+    padding-right: 4vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 14px;
+    color: rgb(226, 208, 173);
+
+    .links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        padding: 10px;
+        padding-bottom: 3px;
+        margin-right: 14;
+
+        img {
+          width: 30px;
+        }
+      }
+    }
   }
 }

@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: 'PhysicksKim/gyechunsik-index-page'
+          repository: 'PhysicksKim/gyechunsik-main-page'
           ref: 'main'
 
       - name: Set up Node.js
@@ -29,9 +29,9 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 rm s3://gyechunsik-scoreboard/index-page/ --exclude "*/*"
-          aws s3 sync ./dist/ s3://gyechunsik-scoreboard/index-page/ --exclude "assets/*"
-          aws s3 sync ./dist/assets/ s3://gyechunsik-scoreboard/index-page/assets/ --delete --size-only
+          aws s3 rm s3://gyechunsik-scoreboard/indexpage/ --exclude "*/*"
+          aws s3 sync ./dist/ s3://gyechunsik-scoreboard/indexpage/ --exclude "assets/*"
+          aws s3 sync ./dist/assets/ s3://gyechunsik-scoreboard/indexpage/assets/ --delete --size-only
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_S3_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_S3_SECRET_ACCESS_KEY }}

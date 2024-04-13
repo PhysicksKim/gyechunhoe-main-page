@@ -13,9 +13,9 @@ const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
 
   return (
     <div className='board-football-content'>
-      {/* <video className='concert-video' muted autoPlay loop>
-        <source src='https://static.gyechunsik.site/etc/gyechunhoe_concert_clips_for_webmain_720p_noaudio.mp4'></source>
-      </video> */}
+      <video className='football-video' muted autoPlay loop>
+        <source src='https://static.gyechunsik.site/etc/gyechunsik_mainpage_football_noaudio.mp4'></source>
+      </video>
       <div className='display-board-btn-container'>
         <button
           className='display-board-btn-move display-board-btn'

@@ -4,11 +4,12 @@ import '@styles/Application.scss';
 import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
 import useSound from 'use-sound';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { CSSTransition } from 'react-transition-group';
 import { faVolumeHigh, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
+import ChzzkLogo from '@assets/image/logo_chzzk.png';
+import YoutubeLogo from '@assets/image/logo_youtube.png';
+import NaverCafeLogo from '@assets/image/logo_naver_cafe.png';
 
 const Application: React.FC = () => {
-  const [isPlayingSound, setIsPlayingSound] = useState(false);
   const [soundVolume, setSoundVolume] = useState(0.15);
   const [play, exposedData] = useSound(GyeSanabiMp3, {
     volume: soundVolume,
@@ -62,6 +63,34 @@ const Application: React.FC = () => {
         />
       </div>
       <IndexPageRoot />
+      <div className='footer'>
+        <div className='links'>
+          <a
+            href='https://chzzk.naver.com/live/a9a343510e132ea3026ff3cf682820b5'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img src={ChzzkLogo} />
+          </a>
+
+          <a
+            href='https://www.youtube.com/@chunhoe_'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img src={YoutubeLogo} />
+          </a>
+
+          <a
+            href='https://cafe.naver.com/chunhoe'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <img src={NaverCafeLogo} />
+          </a>
+        </div>
+        <div className='background art'>Background Art : Melco</div>
+      </div>
     </div>
   );
 };
