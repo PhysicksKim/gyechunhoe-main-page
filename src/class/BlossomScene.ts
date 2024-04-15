@@ -26,9 +26,9 @@ class BlossomScene {
     this.numPetals = config.numPetals || 5;
     this.petalsTypes = config.petalsTypes;
     this.gravity = config.gravity || 0.8;
-    this.windMaxSpeed = config.windMaxSpeed || 2;
-    this.windMagnitude = 0.5;
-    this.windDuration = 0;
+    this.windMaxSpeed = config.windMaxSpeed || 1.3;
+    this.windMagnitude = 0.8;
+    this.windDuration = 0.3;
     this.width = this.container.offsetWidth;
     this.height = this.container.offsetHeight;
     this.timer = 0;
@@ -109,10 +109,6 @@ class BlossomScene {
 
     return petal;
   }
-
-  // randomRotateAndSpeed(petal: Petal) {
-  //   return null;
-  // }
 
   /**
    * Calculate wind speed
