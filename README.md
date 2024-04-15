@@ -1,3 +1,5 @@
 # Gyechunsik Main Page
 
+[계춘식서버메인새단장.webm](https://github.com/PhysicksKim/gyechunsik-main-page/assets/101965836/b991b000-1237-469f-bf9c-022cedc54da2)
+
 gyechunsik.site 메인 페이지 입니다.
