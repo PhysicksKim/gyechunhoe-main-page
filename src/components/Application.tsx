@@ -91,6 +91,26 @@ const Application: React.FC = () => {
         </div>
         <div className='background art'>Background Art : Melco</div>
       </div>
+      <>
+        <div className='video-preload'>
+          <video
+            className='concert-video-preload'
+            muted
+            preload='auto'
+            style={{ display: 'none', visibility: 'hidden' }}
+          >
+            <source src='https://static.gyechunsik.site/etc/gyechunhoe_concert_clips_for_webmain_720p_noaudio.mp4'></source>
+          </video>
+          <video
+            className='football-video-preload'
+            muted
+            preload='auto'
+            style={{ display: 'none', visibility: 'hidden' }}
+          >
+            <source src='https://static.gyechunsik.site/etc/gyechunsik_mainpage_football_noaudio.mp4'></source>
+          </video>
+        </div>
+      </>
     </div>
   );
 };
