@@ -42,6 +42,18 @@ class BlossomScene {
     requestAnimationFrame(this.updateFrame.bind(this));
   }
 
+  updateBoundary() {
+    this.width = this.container.offsetWidth;
+    this.height = this.container.offsetHeight;
+    this.placeholder.style.width = this.width + 'px';
+    this.placeholder.style.height = this.height + 'px';
+
+    // Optionally, reset the petals to fit the new boundary
+    // this.petals.forEach((petal) => {
+    //   this.resetPetal(petal);
+    // });
+  }
+
   /**
    * Reset the petal position when it goes out of container
    */

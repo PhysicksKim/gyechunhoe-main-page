@@ -25,7 +25,7 @@
   background-image: url(/assets/image/tree01.png);
   background-size: 73vh;
   background-position-x: 100px;
-  background-position-y: 0.2vh;
+  background-position-y: -2.3vh;
   height: 100vh;
   width: calc(100%);
   position: relative;
@@ -34,28 +34,28 @@
 
   .board {
     position: absolute;
-    background-image: url(/assets/image/board02_colorchange.png);
-    // background-image: url(/assets/image/board02.png);
+    background-image: url(/assets/image/hangingBoard_3boards_onlyboard.png);
     background-repeat: no-repeat;
     background-size: 73vh;
-    background-position: 0 0.2vh;
+    background-position: 0 -2.3vh;
     top: 0;
     left: 0;
 
     height: 100vh;
     width: 100%;
 
+    .btn-gyechunhoe,
     .btn-concert,
     .btn-football {
       position: absolute;
       box-sizing: border-box;
-      background-color: rgba(255, 255, 255, 0);
       border: none;
 
-      // overflow: hidden;
+      background-color: rgba(255, 255, 255, 0);
+      // background-color: rgba(0, 4, 255, 0.548);
 
-      height: calc(73vh - 66.9vh);
-      width: calc(73vh - 56vh);
+      // anchor point 를 중심으로 두기 위한 설정
+      transform: translate(-50%, -50%);
 
       font-size: 3vh;
       line-height: 6vh;
@@ -75,13 +75,29 @@
       }
     }
 
+    // 버튼 크기 조정
+    .btn-gyechunhoe {
+      height: calc(73vh - 66.9vh);
+      width: calc(73vh - 50vh);
+    }
+    .btn-concert,
+    .btn-football {
+      height: calc(73vh - 66.9vh);
+      width: calc(73vh - 56vh);
+    }
+
+    // 버튼 위치 조정
+    .btn-gyechunhoe {
+      top: calc(73vh - 47.8vh);
+      left: calc(73vh - 23.3vh);
+    }
     .btn-concert {
-      top: calc(73vh - 45.8vh);
-      left: calc(73vh - 31.7vh);
+      top: calc(73vh - 40.1vh);
+      left: calc(73vh - 23.3vh);
     }
     .btn-football {
-      top: calc(73vh - 38.3vh);
-      left: calc(73vh - 31.7vh);
+      top: calc(73vh - 32.4vh);
+      left: calc(73vh - 23.3vh);
     }
   }
 
@@ -98,19 +114,31 @@
 
     .display-board {
       &.concert {
-        // background-image: url(/assets/image/displayboard_concert.png);
         background-image: url(/assets/image/displayboard_concert_modi_01.png);
       }
       &.football {
-        // background-image: url(/assets/image/displayboard_football.png);
         background-image: url(/assets/image/displayboard_football_modi_01.png);
       }
       background-repeat: no-repeat;
       background-size: 47vh;
-      background-position-x: calc(54.7vh);
-      background-position-y: calc(10vh);
+      background-position-x: calc(56.7vh);
+      background-position-y: calc(13vh);
       height: 100%;
       width: 100%;
     }
   }
 }
+
+// @media (max-width: 950px) {
+//   .header {
+//     background-position-x: -230px;
+//     background-position-y: 10px;
+//     background-size: 500px;
+
+//     .board {
+//       background-position-y: 10px;
+//       background-position-x: -230px;
+//       background-size: 500px;
+//     }
+//   }
+// }

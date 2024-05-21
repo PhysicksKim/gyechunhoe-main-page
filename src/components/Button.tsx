@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 interface ButtonProps {
-  type: 'concert' | 'football';
+  type: 'concert' | 'football' | 'gyechunhoe';
   onClick: () => void;
 }
 

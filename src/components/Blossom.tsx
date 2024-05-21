@@ -6,14 +6,12 @@ import { BlossomSceneConfig } from '@src/types/types';
 
 const Blossom = () => {
   const blossomContainerRef = useRef<HTMLDivElement>(null);
+  const blossomSceneRef = useRef<BlossomScene | null>(null);
 
   useEffect(() => {
     const petalsTypes = [
       new Petal({ customClass: 'petal-style1' }),
       new Petal({ customClass: 'petal-style2' }),
-      // new Petal({ customClass: 'petal-style3' }),
-      // new Petal({ customClass: 'petal-style4' }),
-      // new Petal({ customClass: 'petal-style5' }),
     ];
 
     const myBlossomSceneConfig: BlossomSceneConfig = {
@@ -23,15 +21,23 @@ const Blossom = () => {
     };
 
     if (blossomContainerRef.current) {
-      new BlossomScene(myBlossomSceneConfig);
+      blossomSceneRef.current = new BlossomScene(myBlossomSceneConfig);
     }
+
+    const handleResize = () => {
+      if (blossomSceneRef.current) {
+        blossomSceneRef.current.updateBoundary();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  return (
-    <>
-      <div id='blossom_container' ref={blossomContainerRef}></div>
-    </>
-  );
+  return <div id='blossom_container' ref={blossomContainerRef}></div>;
 };
 
 export default Blossom;

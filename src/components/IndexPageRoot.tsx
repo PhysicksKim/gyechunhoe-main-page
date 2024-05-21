@@ -6,6 +6,7 @@ import BoardConcert from './displayboard/BoardConcert';
 import BoardFootball from './displayboard/BoardFootball';
 import { CSSTransition } from 'react-transition-group';
 import Button from './Button';
+import Modal from './Modal';
 
 type DisplayType = '' | 'concert' | 'football';
 
@@ -13,6 +14,7 @@ const IndexPageRoot = () => {
   const [showDisplayBoard, setShowDisplayBoard] = useState(false);
   const [displayComponent, setDisplayComponent] = useState(null);
   const [nowShowing, setNowShowing] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = (component: React.JSX.Element, type: DisplayType) => {
     if (nowShowing === type) {
@@ -33,10 +35,19 @@ const IndexPageRoot = () => {
     setNowShowing('');
   };
 
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className='main-background'>
       <div className='header'>
         <div className='board'>
+          <Button type='gyechunhoe' onClick={handleModalOpen}></Button>
           <Button
             type='concert'
             onClick={() =>
@@ -71,6 +82,9 @@ const IndexPageRoot = () => {
         </CSSTransition>
       </div>
       <Blossom />
+      <Modal isOpen={isModalOpen} onClose={handleModalClose}>
+        <div>여기에 모달 내용을 입력하세요.</div>
+      </Modal>
     </div>
   );
 };
