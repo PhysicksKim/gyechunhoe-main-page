@@ -72,7 +72,6 @@ const Application: React.FC = () => {
           >
             <img src={ChzzkLogo} />
           </a>
-
           <a
             href='https://www.youtube.com/@chunhoe_'
             target='_blank'
@@ -80,7 +79,6 @@ const Application: React.FC = () => {
           >
             <img src={YoutubeLogo} />
           </a>
-
           <a
             href='https://cafe.naver.com/chunhoe'
             target='_blank'
