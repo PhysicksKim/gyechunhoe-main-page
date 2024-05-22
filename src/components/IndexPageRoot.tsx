@@ -6,6 +6,8 @@ import BoardConcert from './displayboard/BoardConcert';
 import BoardFootball from './displayboard/BoardFootball';
 import { CSSTransition } from 'react-transition-group';
 import Button from './Button';
+import { useSelector } from 'react-redux';
+import { RootState } from '@src/redux/Store';
 
 type DisplayType = '' | 'concert' | 'football';
 

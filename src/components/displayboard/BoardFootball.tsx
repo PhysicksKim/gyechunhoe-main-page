@@ -1,11 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '@styles/displayboard/BoardFootball.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '@src/redux/Store';
 
 interface BoardFootballProps {
   closeWindow: () => void;
 }
 
 const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
+  // const videoTagRef = useRef<HTMLVideoElement>(null);
+  const sourceTagRef = useRef<HTMLSourceElement>(null);
+  const footballVideoBlobUrl = useSelector(
+    (state: RootState) => state.videos.footballBlobUrl,
+  );
+
+  useEffect(() => {
+    if (sourceTagRef.current) {
+      sourceTagRef.current.src = footballVideoBlobUrl;
+    }
+  }, [footballVideoBlobUrl]);
+
   const handleMoveToScoreboard = () => {
     // 새 탭에서 스코어보드 페이지로 이동
     window.open('https://gyechunsik.site/scoreboard', '_blank');
@@ -14,7 +28,13 @@ const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
   return (
     <div className='board-football-content'>
       <video className='football-video' muted autoPlay loop>
-        <source src='https://static.gyechunsik.site/etc/gyechunsik_mainpage_football_noaudio.mp4'></source>
+        {footballVideoBlobUrl && (
+          <source
+            ref={sourceTagRef}
+            src={footballVideoBlobUrl}
+            type='video/mp4'
+          ></source>
+        )}
       </video>
       <div className='display-board-btn-container'>
         <button
