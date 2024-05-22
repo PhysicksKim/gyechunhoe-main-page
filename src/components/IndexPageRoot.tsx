@@ -7,6 +7,7 @@ import BoardFootball from './displayboard/BoardFootball';
 import { CSSTransition } from 'react-transition-group';
 import Button from './Button';
 import Modal from './Modal';
+import IntroduceGye from './IntroduceGye';
 
 type DisplayType = '' | 'concert' | 'football';
 
@@ -37,6 +38,8 @@ const IndexPageRoot = () => {
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
+    setDisplayComponent(null);
+    setNowShowing('');
   };
 
   const handleModalClose = () => {
@@ -82,8 +85,11 @@ const IndexPageRoot = () => {
         </CSSTransition>
       </div>
       <Blossom />
+
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-        <div>여기에 모달 내용을 입력하세요.</div>
+        <>
+          <IntroduceGye isOpen={isModalOpen} />
+        </>
       </Modal>
     </div>
   );

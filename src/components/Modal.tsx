@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, MouseEvent } from 'react';
 import '@styles/Modal.scss';
 import { CSSTransition } from 'react-transition-group';
 
@@ -9,24 +9,43 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose }) => {
-  const modalRef = useRef(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
-  const handleOutsideClick = (e: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(e.target)) {
+  const handleMouseDown = (e: MouseEvent) => {
+    if (!modalRef.current) return;
+
+    const { clientX, clientY } = e;
+    const { left, right, top, bottom } =
+      modalRef.current.getBoundingClientRect();
+
+    if (
+      clientX < left ||
+      clientX > right ||
+      clientY < top ||
+      clientY > bottom
+    ) {
       onClose();
     }
   };
 
   useEffect(() => {
-    console.log(`isOpen:${isOpen}`);
     if (isOpen) {
-      document.addEventListener('mousedown', handleOutsideClick);
+      document.addEventListener(
+        'mousedown',
+        handleMouseDown as unknown as EventListener,
+      );
     } else {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener(
+        'mousedown',
+        handleMouseDown as unknown as EventListener,
+      );
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener(
+        'mousedown',
+        handleMouseDown as unknown as EventListener,
+      );
     };
   }, [isOpen]);
 
@@ -35,9 +54,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose }) => {
       <div className='modal-overlay'>
         <div className='modal-content' ref={modalRef}>
           {children}
-          <button className='close-button' onClick={onClose}>
-            Close
-          </button>
         </div>
       </div>
     </CSSTransition>

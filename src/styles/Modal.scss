@@ -1,4 +1,5 @@
-/* Modal.scss */
+@import '@styles/color.scss';
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -11,6 +12,7 @@
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  z-index: 99;
 
   &.modal-enter {
     opacity: 0;
@@ -31,9 +33,9 @@
 }
 
 .modal-content {
-  background: white;
+  background: $background-pink-modal;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 50px;
   max-width: 90%;
   max-height: 90%;
   overflow-y: auto;
@@ -44,14 +46,4 @@
     max-width: 95%;
     padding: 15px;
   }
-}
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
 }

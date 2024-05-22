@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import IndexPageRoot from './IndexPageRoot';
-import '@styles/Application.scss';
-import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
 import useSound from 'use-sound';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVolumeHigh, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
+import IndexPageRoot from './IndexPageRoot';
+
+import '@styles/Application.scss';
+import '@styles/Fonts.scss';
+
 import ChzzkLogo from '@assets/image/logo_chzzk.png';
 import YoutubeLogo from '@assets/image/logo_youtube.png';
 import NaverCafeLogo from '@assets/image/logo_naver_cafe.png';
+import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVolumeHigh, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 
 const Application: React.FC = () => {
   // const [soundVolume, setSoundVolume] = useState(0.15);
@@ -90,7 +94,7 @@ const Application: React.FC = () => {
             <img src={NaverCafeLogo} />
           </a>
         </div>
-        <div className='background art'>Background Art : Melco</div>
+        <div className='background-art-author'>Background Art : Melco</div>
       </div>
       <>
         <div className='video-preload'>
