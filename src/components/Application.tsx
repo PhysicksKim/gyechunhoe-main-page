@@ -14,8 +14,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeHigh, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 
 const Application: React.FC = () => {
-  // const [soundVolume, setSoundVolume] = useState(0.15);
-  const [soundVolume, setSoundVolume] = useState(0.0);
+  const [soundVolume, setSoundVolume] = useState(0.15);
+  // const [soundVolume, setSoundVolume] = useState(0.0);
   const [play, exposedData] = useSound(GyeSanabiMp3, {
     volume: soundVolume,
     loop: true,

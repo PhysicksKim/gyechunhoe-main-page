@@ -2,13 +2,21 @@ import React, { useEffect, useRef, MouseEvent } from 'react';
 import '@styles/Modal.scss';
 import { CSSTransition } from 'react-transition-group';
 
-interface ModalProps {
+export interface ModalProps {
   isOpen: boolean;
   children: React.ReactNode;
   onClose: () => void;
+  width?: string;
+  height?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose }) => {
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  children,
+  onClose,
+  width = '900px',
+  height = '700px',
+}) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleMouseDown = (e: MouseEvent) => {
@@ -52,7 +60,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, children, onClose }) => {
   return (
     <CSSTransition in={isOpen} timeout={300} classNames='modal' unmountOnExit>
       <div className='modal-overlay'>
-        <div className='modal-content' ref={modalRef}>
+        <div
+          className='modal-content'
+          style={{ width: width, height: height }}
+          ref={modalRef}
+        >
           {children}
         </div>
       </div>

@@ -48,7 +48,7 @@ const IndexPageRoot = () => {
 
   return (
     <div className='main-background'>
-      <div className='header'>
+      <div className='main-content'>
         <div className='board'>
           <Button type='gyechunhoe' onClick={handleModalOpen}></Button>
           <Button
