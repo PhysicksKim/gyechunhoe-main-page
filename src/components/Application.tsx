@@ -8,6 +8,9 @@ import '@styles/Fonts.scss';
 import ChzzkLogo from '@assets/image/logo_chzzk.png';
 import YoutubeLogo from '@assets/image/logo_youtube.png';
 import NaverCafeLogo from '@assets/image/logo_naver_cafe.png';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@src/redux/Store';
+import { fetchVideoBlob } from '@src/redux/VideoSlice';
 import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,6 +25,23 @@ const Application: React.FC = () => {
     autoplay: true,
   });
   const [prevVolumn, setPrevVolumn] = useState(0);
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(
+      fetchVideoBlob({
+        url: 'https://static.gyechunsik.site/etc/gyechunhoe_concert_clips_for_webmain_720p_noaudio.mp4',
+        type: 'concert',
+      }),
+    );
+    dispatch(
+      fetchVideoBlob({
+        url: 'https://static.gyechunsik.site/etc/gyechunsik_mainpage_football_noaudio.mp4',
+        type: 'football',
+      }),
+    );
+  }, [dispatch]);
 
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const volume = parseFloat(event.target.value);
@@ -77,7 +97,6 @@ const Application: React.FC = () => {
           >
             <img src={ChzzkLogo} />
           </a>
-
           <a
             href='https://www.youtube.com/@chunhoe_'
             target='_blank'
@@ -85,7 +104,6 @@ const Application: React.FC = () => {
           >
             <img src={YoutubeLogo} />
           </a>
-
           <a
             href='https://cafe.naver.com/chunhoe'
             target='_blank'
@@ -96,26 +114,6 @@ const Application: React.FC = () => {
         </div>
         <div className='background-art-author'>Background Art : Melco</div>
       </div>
-      <>
-        <div className='video-preload'>
-          <video
-            className='concert-video-preload'
-            muted
-            preload='auto'
-            style={{ display: 'none', visibility: 'hidden' }}
-          >
-            <source src='https://static.gyechunsik.site/etc/gyechunhoe_concert_clips_for_webmain_720p_noaudio.mp4'></source>
-          </video>
-          <video
-            className='football-video-preload'
-            muted
-            preload='auto'
-            style={{ display: 'none', visibility: 'hidden' }}
-          >
-            <source src='https://static.gyechunsik.site/etc/gyechunsik_mainpage_football_noaudio.mp4'></source>
-          </video>
-        </div>
-      </>
     </div>
   );
 };
