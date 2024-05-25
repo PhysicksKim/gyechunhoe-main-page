@@ -2,14 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import '@styles/IndexPageRoot.scss';
 import '@styles/IndexPageRootAnimation.scss';
 import Blossom from './Blossom';
-import BoardConcert from './displayboard/BoardConcert';
-import BoardFootball from './displayboard/BoardFootball';
+import BoardConcert from './menu/BoardConcert';
+import BoardFootball from './menu/BoardFootball';
 import { CSSTransition } from 'react-transition-group';
-import Button from './Button';
-import { useSelector } from 'react-redux';
-import { RootState } from '@src/redux/Store';
-import Modal from './Modal';
-import IntroduceGye from './IntroduceGye';
+import MenuButton from './common/Button';
+import Modal from './common/Modal';
+import IntroduceGye from './menu/IntroduceGye';
 
 type DisplayType = '' | 'concert' | 'football';
 
@@ -52,8 +50,8 @@ const IndexPageRoot = () => {
     <div className='main-background'>
       <div className='main-content'>
         <div className='board'>
-          <Button type='gyechunhoe' onClick={handleModalOpen}></Button>
-          <Button
+          <MenuButton type='gyechunhoe' onClick={handleModalOpen}></MenuButton>
+          <MenuButton
             type='concert'
             onClick={() =>
               handleClick(
@@ -62,7 +60,7 @@ const IndexPageRoot = () => {
               )
             }
           />
-          <Button
+          <MenuButton
             type='football'
             onClick={() =>
               handleClick(

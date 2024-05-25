@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, MouseEvent } from 'react';
-import '@styles/Modal.scss';
+import '@styles/common/Modal.scss';
 import { CSSTransition } from 'react-transition-group';
 
 export interface ModalProps {

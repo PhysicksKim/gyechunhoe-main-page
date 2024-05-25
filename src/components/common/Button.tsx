@@ -5,7 +5,7 @@ interface ButtonProps {
   onClick: () => void;
 }
 
-const Button = ({ type, onClick }: ButtonProps) => {
+const MenuButton = ({ type, onClick }: ButtonProps) => {
   const [isActive, setIsActive] = useState(false);
   const [activeTimout, setActiveTimeout] = useState<NodeJS.Timeout | null>(
     null,
@@ -32,4 +32,4 @@ const Button = ({ type, onClick }: ButtonProps) => {
   );
 };
 
-export default Button;
+export default MenuButton;

@@ -38,7 +38,6 @@ const videoSlice = createSlice({
     builder
       .addCase(fetchVideoBlob.pending, (state) => {
         state.status = 'loading';
-        console.log('loading');
       })
       .addCase(
         fetchVideoBlob.fulfilled,

@@ -8,40 +8,20 @@ import '@styles/Fonts.scss';
 import ChzzkLogo from '@assets/image/logo_chzzk.png';
 import YoutubeLogo from '@assets/image/logo_youtube.png';
 import NaverCafeLogo from '@assets/image/logo_naver_cafe.png';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '@src/redux/Store';
-import { fetchVideoBlob } from '@src/redux/VideoSlice';
 import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeHigh, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
+import MediaPreloader from './MediaPreloader';
 
 const Application: React.FC = () => {
   const [soundVolume, setSoundVolume] = useState(0.15);
-  // const [soundVolume, setSoundVolume] = useState(0.0);
   const [play, exposedData] = useSound(GyeSanabiMp3, {
     volume: soundVolume,
     loop: true,
     autoplay: true,
   });
   const [prevVolumn, setPrevVolumn] = useState(0);
-
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    dispatch(
-      fetchVideoBlob({
-        url: 'https://static.gyechunsik.site/etc/gyechunhoe_concert_clips_for_webmain_720p_noaudio.mp4',
-        type: 'concert',
-      }),
-    );
-    dispatch(
-      fetchVideoBlob({
-        url: 'https://static.gyechunsik.site/etc/gyechunsik_mainpage_football_noaudio.mp4',
-        type: 'football',
-      }),
-    );
-  }, [dispatch]);
 
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const volume = parseFloat(event.target.value);
@@ -61,6 +41,7 @@ const Application: React.FC = () => {
 
   return (
     <div className='app-root-container'>
+      <MediaPreloader />
       <div className='audio-control'>
         {soundVolume > 0 ? (
           <>

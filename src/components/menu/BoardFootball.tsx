@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '@styles/displayboard/BoardFootball.scss';
+import '@styles/menu/BoardFootball.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@src/redux/Store';
 

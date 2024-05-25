@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Gye2d01 from '@assets/image/gyechunhoe_live2d_01.png';
-import Gye2d02 from '@assets/image/gyechunhoe_live2d_02.png';
 import Gye2d03 from '@assets/image/gyechunhoe_live2d_03_.png';
-import Gye2d03_1400p from '@assets/image/gyechunhoe_live2d_03_1400p.png';
 
 import chunsik from '@assets/image/chunsik_character.png';
 
@@ -10,7 +7,7 @@ import chzzkLogo from '@assets/image/logo_chzzk.png';
 import youtubeLogo from '@assets/image/logo_youtube.png';
 import naverCafeLogo from '@assets/image/logo_naver_cafe.png';
 
-import '@styles/IntroduceGye.scss';
+import '@styles/menu/IntroduceGye.scss';
 
 interface IntroduceGyeProps {
   isOpen: boolean;
@@ -23,7 +20,7 @@ const IntroduceGye: React.FC<IntroduceGyeProps> = ({ isOpen }) => {
     if (isOpen) {
       const timer = setTimeout(() => {
         setAnimateClass('after-animate');
-      }, 100); // 약간의 지연 후 클래스 변경
+      }, 100);
       return () => clearTimeout(timer);
     } else {
       setAnimateClass('before-animate');

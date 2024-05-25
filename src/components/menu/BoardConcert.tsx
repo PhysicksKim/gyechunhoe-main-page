@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '@styles/displayboard/BoardConcert.scss';
+import '@styles/menu/BoardConcert.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '@src/redux/Store';
 
