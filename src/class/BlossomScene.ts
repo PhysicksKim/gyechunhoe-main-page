@@ -14,6 +14,7 @@ class BlossomScene {
   private width: number;
   private height: number;
   private timer: number;
+  private lastUpdateTime: number;
 
   constructor(config: BlossomSceneConfig) {
     const container = document.getElementById(config.id);
@@ -32,6 +33,7 @@ class BlossomScene {
     this.width = this.container.offsetWidth;
     this.height = this.container.offsetHeight;
     this.timer = 0;
+    this.lastUpdateTime = performance.now();
 
     this.container.style.overflow = 'hidden';
     this.placeholder.style.transformStyle = 'preserve-3d';
@@ -195,21 +197,28 @@ class BlossomScene {
     }
   }
 
-  /**
-   * Update the animation frame
-   */
   updateFrame() {
-    if (this.timer === this.windDuration) {
-      this.updateWind();
-      this.timer = 0;
+    const now = performance.now();
+    const delta = now - this.lastUpdateTime;
+    const fps = 60;
+
+    // 60fps 기준으로 업데이트, 원하는 fps로 변경 가능
+    if (delta >= 1000 / fps) {
+      this.timer += delta / 1000;
+
+      if (this.timer >= this.windDuration) {
+        this.updateWind();
+        this.timer = 0;
+      }
+
+      const petalsLen = this.petals.length;
+      for (let i = 0; i < petalsLen; i++) {
+        this.updatePetal(this.petals[i]);
+      }
+
+      this.lastUpdateTime = now;
     }
 
-    const petalsLen = this.petals.length;
-    for (let i = 0; i < petalsLen; i++) {
-      this.updatePetal(this.petals[i]);
-    }
-
-    this.timer++;
     requestAnimationFrame(this.updateFrame.bind(this));
   }
 }

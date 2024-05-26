@@ -30,6 +30,12 @@ export const fetchVideoBlob = createAsyncThunk<
   return { url: URL.createObjectURL(blob), type };
 });
 
+/**
+ * @deprecated
+ * 비디오를 미리 로딩하기 위해 Blob URL 을 사용하는 Redux Slice 입니다.
+ * Blob URL 을 통해 미리 로딩하는 것은 유용하지만, 동영상 파일 크기가 커지면 Progressive MP4 보다 초기 로딩 시간이 비교적 더 길어지는 단점이 있습니다.
+ * 따라서 Progressive MP4 를 사용하면서도 비디오 화면을 숨겨두는 식으로 미리 로딩하는 방법을 사용하는 것이 더 효율적입니다.
+ */
 const videoSlice = createSlice({
   name: 'videos',
   initialState,

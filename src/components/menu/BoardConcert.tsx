@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import '@styles/menu/BoardConcert.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '@src/redux/Store';
+import MediaUrls from '@src/class/MediaUrls';
 
 interface BoardConcertProps {
   closeWindow: () => void;
@@ -20,7 +21,8 @@ const BoardConcert = ({ closeWindow }: BoardConcertProps) => {
   return (
     <div className='board-concert-content'>
       <video className='concert-video' muted autoPlay loop>
-        {concertVideoBlobUrl && <source src={concertVideoBlobUrl}></source>}
+        {/* {concertVideoBlobUrl && <source src={concertVideoBlobUrl}></source>} */}
+        <source src={MediaUrls.concertVideoPreview}></source>
       </video>
       <div className='display-board-btn-container'>
         <button

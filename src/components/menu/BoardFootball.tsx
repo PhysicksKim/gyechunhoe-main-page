@@ -2,13 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import '@styles/menu/BoardFootball.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@src/redux/Store';
+import MediaUrls from '@src/class/MediaUrls';
 
 interface BoardFootballProps {
   closeWindow: () => void;
 }
 
 const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
-  // const videoTagRef = useRef<HTMLVideoElement>(null);
   const sourceTagRef = useRef<HTMLSourceElement>(null);
   const footballVideoBlobUrl = useSelector(
     (state: RootState) => state.videos.footballBlobUrl,
@@ -28,13 +28,14 @@ const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
   return (
     <div className='board-football-content'>
       <video className='football-video' muted autoPlay loop>
-        {footballVideoBlobUrl && (
+        {/* {footballVideoBlobUrl && (
           <source
             ref={sourceTagRef}
             src={footballVideoBlobUrl}
             type='video/mp4'
           ></source>
-        )}
+        )} */}
+        <source src={MediaUrls.footballVideoPreview}></source>
       </video>
       <div className='display-board-btn-container'>
         <button
