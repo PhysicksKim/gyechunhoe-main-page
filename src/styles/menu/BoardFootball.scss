@@ -1,13 +1,9 @@
 .board-football-content {
   position: relative;
   box-sizing: border-box;
-  left: 62.3vh;
-  top: 17vh;
 
   display: flex;
   flex-direction: column;
-  width: 36.5vh;
-  height: 38vh;
   align-items: center;
 
   .football-video {
@@ -19,11 +15,15 @@
     border-left-width: 4px;
     border-bottom-width: 2px;
 
-    top: 6vh;
-    width: 33.2vh;
-    height: 18.8vh;
     object-fit: cover;
     background-color: #000000;
+
+    translate: -50% -50%;
+    top: 282px;
+    left: 707px;
+
+    width: 294px;
+    height: 162px;
   }
 
   .display-board-btn-container {
@@ -59,3 +59,14 @@
     }
   }
 }
+
+// breakpoint : height 850px
+// 배경 gif 가 가리므로 위로 올림
+// @media (max-height: 850px) {
+//   .main-content {
+//     background-position-y: -70px;
+//     .board {
+//       background-position-y: -70px;
+//     }
+//   }
+// }

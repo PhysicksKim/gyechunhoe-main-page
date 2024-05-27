@@ -48,8 +48,8 @@ const IndexPageRoot = () => {
 
   return (
     <div className='main-background'>
-      <div className='main-content'>
-        <div className='board'>
+      <div className='main-content art-blossom-tree'>
+        <div className='board art-board-buttons'>
           <MenuButton type='gyechunhoe' onClick={handleModalOpen}></MenuButton>
           <MenuButton
             type='concert'
@@ -78,7 +78,7 @@ const IndexPageRoot = () => {
           onExited={handleExited}
         >
           <div className='display-board-container'>
-            <div className={`display-board ${nowShowing}`}>
+            <div className={`display-board art-display-board ${nowShowing}`}>
               {displayComponent}
             </div>
           </div>
