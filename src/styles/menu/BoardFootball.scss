@@ -1,3 +1,5 @@
+@import '@styles/ResponsiveVar.scss';
+
 .board-football-content {
   position: relative;
   box-sizing: border-box;
@@ -19,38 +21,38 @@
     background-color: #000000;
 
     translate: -50% -50%;
-    top: 282px;
-    left: 707px;
+    top: $display-video-top;
+    left: $display-video-left;
 
-    width: 294px;
-    height: 162px;
+    width: $display-video-width;
+    height: $display-video-height;
   }
 
   .display-board-btn-container {
     box-sizing: border-box;
-    left: 0;
-    top: 5vh;
-    width: 100%;
-    height: 4vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+
+    border: 3px solid #2fe617;
+
+    top: $display-video-container-top;
+    left: $display-video-container-left;
 
     .display-board-btn {
       position: absolute;
-      bottom: 1vh;
-      width: 14.3vh;
-      height: 7.8vh;
-      border-radius: 2vh;
+      width: $display-video-btn-width;
+      height: $display-video-btn-height;
+      border-radius: 20px;
       border: none;
       background-color: transparent;
+      background-color: #4417e66c;
+
       z-index: 1;
     }
     .display-board-btn-move {
-      left: 3vh;
+      left: $display-video-move-btn-left;
     }
     .display-board-btn-close {
-      right: 3vh;
+      left: $display-video-close-btn-left;
     }
 
     .display-board-btn:hover {
@@ -59,14 +61,3 @@
     }
   }
 }
-
-// breakpoint : height 850px
-// 배경 gif 가 가리므로 위로 올림
-// @media (max-height: 850px) {
-//   .main-content {
-//     background-position-y: -70px;
-//     .board {
-//       background-position-y: -70px;
-//     }
-//   }
-// }

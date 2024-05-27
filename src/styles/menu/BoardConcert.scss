@@ -1,3 +1,5 @@
+@import '@styles/ResponsiveVar.scss';
+
 .board-concert-content {
   position: relative;
   box-sizing: border-box;
@@ -19,35 +21,38 @@
     background-color: #000000;
 
     translate: -50% -50%;
-    top: 282px;
-    left: 707px;
+    top: $display-video-top;
+    left: $display-video-left;
 
-    width: 294px;
-    height: 162px;
+    width: $display-video-width;
+    height: $display-video-height;
   }
 
   .display-board-btn-container {
     box-sizing: border-box;
     position: absolute;
 
-    top: 405px;
-    left: 572px;
+    border: 3px solid #2fe617;
+
+    top: $display-video-container-top;
+    left: $display-video-container-left;
 
     .display-board-btn {
       position: absolute;
-      width: 127px;
-      height: 70px;
+      width: $display-video-btn-width;
+      height: $display-video-btn-height;
       border-radius: 20px;
       border: none;
       background-color: transparent;
+      background-color: #4417e66c;
 
       z-index: 1;
     }
     .display-board-btn-move {
-      left: 0px;
+      left: $display-video-move-btn-left;
     }
     .display-board-btn-close {
-      left: 143px;
+      left: $display-video-close-btn-left;
     }
 
     .display-board-btn:hover {

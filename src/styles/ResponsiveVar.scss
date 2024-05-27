@@ -1,0 +1,73 @@
+/*
+반응형 디자인을 위한 변수들 정의
+*/
+// 벚나무 도트
+$blossom-tree-size: 70vh;
+$blossom-tree-position-x: -1.6vh;
+$blossom-tree-position-y: 0vh;
+
+// 나무 판자 버튼 도트
+$board-buttons-size: 70vh;
+$board-buttons-position-x: -1.6vh;
+$board-buttons-position-y: 0vh;
+
+// 버튼 크기 조정
+$btn-gyechunhoe-height: 5.7vh;
+$btn-gyechunhoe-width: 22vh;
+$btn-concert-height: $btn-gyechunhoe-height;
+$btn-concert-width: 16.4vh;
+$btn-football-height: $btn-concert-height;
+$btn-football-width: $btn-concert-width;
+
+// 버튼 위치 조정
+$btn-gyechunhoe-top: 26.3vh;
+$btn-gyechunhoe-left: 46vh;
+$btn-concert-top: 33.8vh;
+$btn-concert-left: $btn-gyechunhoe-left;
+$btn-football-top: 41.1vh;
+$btn-football-left: $btn-gyechunhoe-left;
+
+// display 도트
+$display-board-size: 44.2vh;
+$display-board-position-x: 53.37vh;
+$display-board-position-y: 12.1vh;
+
+// display video 위치 크기
+$display-video-top: 30.3vh;
+$display-video-left: 75.6vh;
+$display-video-height: 17vh;
+$display-video-width: 30vh;
+
+// display video container 위치
+$display-video-container-top: 42.7vh;
+$display-video-container-left: 60.8vh;
+
+// display video button 위치
+$display-video-btn-width: 13.8vh;
+$display-video-btn-height: 7.4vh;
+
+$display-video-move-btn-left: 0vh;
+$display-video-close-btn-left: 15.2vh;
+
+// ----------------------------------------------
+/**
+* # 반응형 쿼리를 화변 비를 기준으로 작성하는 이유  
+* 
+* 화면 비(aspect-ratio)를 기준으로 반응형 쿼리를 작성해야 합니다.  
+* vh 를 기준으로 버튼의 크기가 결정되므로 고정된 픽셀 값을 기준으로 반응형이 동작하면 안됩니다.  
+* 반응형 기준을 화면비로 하는 이유는 vh 단위로 크기와 위치를 결정하기 때문입니다.  
+* 예를 들어 기기의 vh 는 고정된 채로 vw 만 변화하는 예시를 생각해 봅시다.  
+* w: 1600px h:900px 인 경우 충분히 버튼 클릭 시 video 공간이 확보 되겠지만  
+* w: 900px  h:900px 로 변한다면 화면 밖으로 버튼이 나가버립니다.  
+* 그렇다고 고정된 width pixel 값을 기준으로 반응형 쿼리를 작성하면 안됩니다.  
+* 예를 들어 h=900px 일 때 w=1000px 일 시 버튼이 밖으로 나간다고 합시다.  
+* 그래서 @media(max-width: 1000px) 로 반응형 쿼리를 작성하면  
+* h=900px 일 때는 의도대로 동작하겠지만 
+* h=400px 이라면 의도와 다르게 버튼이 밖으로 나가지도 않는데 breakpoint로 인해 크기가 줄어들게 될 겁니다.  
+* 따라서 이를 해결하려면  
+* 화면 비를 기준으로 반응형 쿼리를 작성해야 합니다.    
+*/
+// ----------------------------------------------
+
+@media (max-aspect-ratio: 7/5) {
+}

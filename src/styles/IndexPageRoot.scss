@@ -1,3 +1,6 @@
+// 반응형 변수들
+@import '@styles/ResponsiveVar.scss';
+
 .main-background {
   background-image: url(https://static.gyechunsik.site/etc/gyechunhoe-conertsanabi-1080p.gif);
   background-size: cover;
@@ -31,8 +34,8 @@
   height: 100%;
   width: 100%;
 
-  background-size: 660px;
-  background-position: -20px 0;
+  background-size: $blossom-tree-size;
+  background-position: $blossom-tree-position-x $blossom-tree-position-y;
 
   // 나무 판자 버튼 도트
   // .art-board-buttons
@@ -44,8 +47,8 @@
     height: 100%;
     width: 100%;
 
-    background-size: 660px;
-    background-position: -20px 0;
+    background-size: $board-buttons-size;
+    background-position: $board-buttons-position-x $board-buttons-position-y;
 
     .btn-gyechunhoe,
     .btn-concert,
@@ -55,7 +58,7 @@
       border: none;
 
       background-color: transparent;
-      // background-color: rgba(0, 4, 255, 0.548);
+      background-color: rgba(0, 4, 255, 0.548);
 
       // anchor point 를 중심으로 두기 위한 설정
       transform: translate(-50%, -50%);
@@ -77,27 +80,27 @@
 
     // 버튼 크기 조정
     .btn-gyechunhoe {
-      height: 55px;
-      width: 204px;
+      height: $btn-gyechunhoe-height;
+      width: $btn-gyechunhoe-width;
     }
     .btn-concert,
     .btn-football {
-      height: 55px;
-      width: 152px;
+      height: $btn-concert-height;
+      width: $btn-concert-width;
     }
 
     // 버튼 위치 조정
     .btn-gyechunhoe {
-      top: 249px;
-      left: 430px;
+      top: $btn-gyechunhoe-top;
+      left: $btn-gyechunhoe-left;
     }
     .btn-concert {
-      top: 318px;
-      left: 430px;
+      top: $btn-concert-top;
+      left: $btn-concert-left;
     }
     .btn-football {
-      top: 387px;
-      left: 430px;
+      top: $btn-football-top;
+      left: $btn-football-left;
     }
   }
 
@@ -121,81 +124,8 @@
       height: 100%;
       width: 100%;
 
-      background-size: 414px;
-      background-position: 498px 114px;
+      background-size: $display-board-size;
+      background-position: $display-board-position-x $display-board-position-y;
     }
   }
 }
-
-// breakpoint
-// 1200px 960px 760px 480px 320px
-
-// breakpoint : height 850px
-// 배경 gif 가 가리므로 위로 올림
-@media (max-width: 960px) {
-  .art-blossom-tree {
-    background-size: calc(660px - 70px);
-    background-position: -100px -50px;
-    .art-board-buttons {
-      background-size: calc(660px - 70px);
-      background-position: -100px -50px;
-
-      .btn-gyechunhoe,
-      .btn-concert,
-      .btn-football {
-        background-color: red;
-      }
-
-      .btn-gyechunhoe {
-        height: 47px;
-        width: 180px;
-        left: 303px;
-        top: 170px;
-      }
-      .btn-concert,
-      .btn-football {
-        height: 47px;
-        width: 134px;
-        left: 303px;
-      }
-      .btn-concert {
-        top: 233px;
-      }
-      .btn-football {
-        top: 296px;
-      }
-    }
-    .display-board-container {
-      .art-display-board {
-        background-size: 370px;
-        background-position-x: 370px;
-        background-position-y: 90px;
-      }
-    }
-  }
-}
-
-// // 버튼 크기 조정
-// .btn-gyechunhoe {
-//   height: 55px;
-//   width: 204px;
-// }
-// .btn-concert,
-// .btn-football {
-//   height: 55px;
-//   width: 152px;
-// }
-
-// // 버튼 위치 조정
-// .btn-gyechunhoe {
-//   top: 249px;
-//   left: 430px;
-// }
-// .btn-concert {
-//   top: 318px;
-//   left: 430px;
-// }
-// .btn-football {
-//   top: 387px;
-//   left: 430px;
-// }
