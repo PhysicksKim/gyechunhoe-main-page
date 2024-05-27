@@ -8,13 +8,21 @@ import { CSSTransition } from 'react-transition-group';
 import MenuButton from './common/Button';
 import Modal from './common/Modal';
 import IntroduceGye from './menu/IntroduceGye';
+import { useMediaQuery } from 'react-responsive';
+import MobileMenu from './menu/MobileMenu';
+import DesktopMenu from './menu/DesktopMenu';
 
-type DisplayType = '' | 'concert' | 'football';
+export type DisplayType = '' | 'concert' | 'football';
 
-const IndexPageRoot = () => {
+export interface IndexPageRootProps {
+  isMobileRatio: boolean;
+}
+
+const IndexPageRoot: React.FC<IndexPageRootProps> = ({ isMobileRatio }) => {
   const [showDisplayBoard, setShowDisplayBoard] = useState(false);
-  const [displayComponent, setDisplayComponent] = useState(null);
-  const [nowShowing, setNowShowing] = useState('');
+  const [displayComponent, setDisplayComponent] =
+    useState<React.JSX.Element | null>(null);
+  const [nowShowing, setNowShowing] = useState<DisplayType>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = (component: React.JSX.Element, type: DisplayType) => {
@@ -48,42 +56,19 @@ const IndexPageRoot = () => {
 
   return (
     <div className='main-background'>
-      <div className='main-content art-blossom-tree'>
-        <div className='board art-board-buttons'>
-          <MenuButton type='gyechunhoe' onClick={handleModalOpen}></MenuButton>
-          <MenuButton
-            type='concert'
-            onClick={() =>
-              handleClick(
-                <BoardConcert closeWindow={handleCloseDisplayBoard} />,
-                'concert',
-              )
-            }
-          />
-          <MenuButton
-            type='football'
-            onClick={() =>
-              handleClick(
-                <BoardFootball closeWindow={handleCloseDisplayBoard} />,
-                'football',
-              )
-            }
-          />
-        </div>
-        <CSSTransition
-          in={showDisplayBoard}
-          timeout={500}
-          classNames='display-board'
-          unmountOnExit
-          onExited={handleExited}
-        >
-          <div className='display-board-container'>
-            <div className={`display-board art-display-board ${nowShowing}`}>
-              {displayComponent}
-            </div>
-          </div>
-        </CSSTransition>
-      </div>
+      {isMobileRatio ? (
+        <MobileMenu />
+      ) : (
+        <DesktopMenu
+          handleModalOpen={handleModalOpen}
+          handleCloseDisplayBoard={handleCloseDisplayBoard}
+          handleClick={handleClick}
+          handleExited={handleExited}
+          showDisplayBoard={showDisplayBoard}
+          nowShowing={nowShowing}
+          displayComponent={displayComponent}
+        />
+      )}
       <Blossom />
 
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>

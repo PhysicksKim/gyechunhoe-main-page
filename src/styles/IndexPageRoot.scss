@@ -34,8 +34,9 @@
   height: 100%;
   width: 100%;
 
-  background-size: $blossom-tree-size;
-  background-position: $blossom-tree-position-x $blossom-tree-position-y;
+  background-size: var(--blossom-tree-size);
+  background-position: var(--blossom-tree-position-x)
+    var(--blossom-tree-position-y);
 
   // 나무 판자 버튼 도트
   // .art-board-buttons
@@ -47,8 +48,9 @@
     height: 100%;
     width: 100%;
 
-    background-size: $board-buttons-size;
-    background-position: $board-buttons-position-x $board-buttons-position-y;
+    background-size: var(--board-buttons-size);
+    background-position: var(--board-buttons-position-x)
+      var(--board-buttons-position-y);
 
     .btn-gyechunhoe,
     .btn-concert,
@@ -80,27 +82,27 @@
 
     // 버튼 크기 조정
     .btn-gyechunhoe {
-      height: $btn-gyechunhoe-height;
-      width: $btn-gyechunhoe-width;
+      height: var(--btn-gyechunhoe-height);
+      width: var(--btn-gyechunhoe-width);
     }
     .btn-concert,
     .btn-football {
-      height: $btn-concert-height;
-      width: $btn-concert-width;
+      height: var(--btn-concert-height);
+      width: var(--btn-concert-width);
     }
 
     // 버튼 위치 조정
     .btn-gyechunhoe {
-      top: $btn-gyechunhoe-top;
-      left: $btn-gyechunhoe-left;
+      top: var(--btn-gyechunhoe-top);
+      left: var(--btn-gyechunhoe-left);
     }
     .btn-concert {
-      top: $btn-concert-top;
-      left: $btn-concert-left;
+      top: var(--btn-concert-top);
+      left: var(--btn-concert-left);
     }
     .btn-football {
-      top: $btn-football-top;
-      left: $btn-football-left;
+      top: var(--btn-football-top);
+      left: var(--btn-football-left);
     }
   }
 
@@ -124,8 +126,9 @@
       height: 100%;
       width: 100%;
 
-      background-size: $display-board-size;
-      background-position: $display-board-position-x $display-board-position-y;
+      background-size: var(--display-board-size);
+      background-position: var(--display-board-position-x)
+        var(--display-board-position-y);
     }
   }
 }

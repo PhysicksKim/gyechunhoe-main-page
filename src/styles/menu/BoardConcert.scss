@@ -21,11 +21,11 @@
     background-color: #000000;
 
     translate: -50% -50%;
-    top: $display-video-top;
-    left: $display-video-left;
+    top: var(--display-video-top);
+    left: var(--display-video-left);
 
-    width: $display-video-width;
-    height: $display-video-height;
+    width: var(--display-video-width);
+    height: var(--display-video-height);
   }
 
   .display-board-btn-container {
@@ -34,13 +34,13 @@
 
     border: 3px solid #2fe617;
 
-    top: $display-video-container-top;
-    left: $display-video-container-left;
+    top: var(--display-video-container-top);
+    left: var(--display-video-container-left);
 
     .display-board-btn {
       position: absolute;
-      width: $display-video-btn-width;
-      height: $display-video-btn-height;
+      width: var(--display-video-btn-width);
+      height: var(--display-video-btn-height);
       border-radius: 20px;
       border: none;
       background-color: transparent;
@@ -49,10 +49,10 @@
       z-index: 1;
     }
     .display-board-btn-move {
-      left: $display-video-move-btn-left;
+      left: var(--display-video-move-btn-left);
     }
     .display-board-btn-close {
-      left: $display-video-close-btn-left;
+      left: var(--display-video-close-btn-left);
     }
 
     .display-board-btn:hover {

@@ -13,6 +13,7 @@ import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeHigh, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 import MediaPreloader from './MediaPreloader';
+import { useMediaQuery } from 'react-responsive';
 
 const Application: React.FC = () => {
   const [soundVolume, setSoundVolume] = useState(0.15);
@@ -22,6 +23,7 @@ const Application: React.FC = () => {
     autoplay: true,
   });
   const [prevVolumn, setPrevVolumn] = useState(0);
+  const isMobileRatio = useMediaQuery({ query: '(max-aspect-ratio: 3/5)' });
 
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const volume = parseFloat(event.target.value);
@@ -42,7 +44,11 @@ const Application: React.FC = () => {
   return (
     <div className='app-root-container'>
       <MediaPreloader />
-      <div className='audio-control'>
+      <div
+        className={`audio-control ${
+          isMobileRatio ? 'mobile-audio-control' : 'desktop-audio-control'
+        }`}
+      >
         {soundVolume > 0 ? (
           <>
             <FontAwesomeIcon
@@ -68,7 +74,7 @@ const Application: React.FC = () => {
           onChange={handleVolumeChange}
         />
       </div>
-      <IndexPageRoot />
+      <IndexPageRoot isMobileRatio={isMobileRatio} />
       <div className='footer'>
         <div className='links'>
           <a
