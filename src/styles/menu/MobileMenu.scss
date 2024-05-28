@@ -1,0 +1,70 @@
+.mobile-menu-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 49px;
+  padding: 3px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  background-color: rgba(236, 236, 236, 0.959);
+  z-index: 99;
+
+  color: black;
+  font-family: 'NanumSquareNeo';
+  font-weight: 400;
+  text-wrap: nowrap;
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.397);
+
+  .mobile-menu-left {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 8px;
+    margin-left: 28px;
+    width: 100px;
+
+    > div {
+      flex-grow: 1;
+      min-width: 0;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 400;
+      font-family: 'GmarketSans';
+    }
+  }
+
+  .mobile-menu-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    margin-right: 16px;
+    padding-bottom: 10px;
+    vertical-align: text-bottom;
+
+    width: 230px;
+
+    > div {
+      text-align: center;
+      font-weight: 400;
+      width: 70px;
+      box-sizing: border-box;
+      padding-right: 3px;
+      padding-left: 3px;
+    }
+
+    .mobile-menu-concert-btn {
+      box-sizing: border-box;
+    }
+    .mobile-menu-football-btn {
+      box-sizing: border-box;
+    }
+  }
+}

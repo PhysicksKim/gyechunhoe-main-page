@@ -5,15 +5,12 @@ import IndexPageRoot from './IndexPageRoot';
 import '@styles/Application.scss';
 import '@styles/Fonts.scss';
 
-import ChzzkLogo from '@assets/image/logo_chzzk.png';
-import YoutubeLogo from '@assets/image/logo_youtube.png';
-import NaverCafeLogo from '@assets/image/logo_naver_cafe.png';
 import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVolumeHigh, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 import MediaPreloader from './MediaPreloader';
 import { useMediaQuery } from 'react-responsive';
+import VolumeBar from './VolumeBar';
+import Footer from './Footer';
 
 const Application: React.FC = () => {
   const [soundVolume, setSoundVolume] = useState(0.15);
@@ -44,63 +41,14 @@ const Application: React.FC = () => {
   return (
     <div className='app-root-container'>
       <MediaPreloader />
-      <div
-        className={`audio-control ${
-          isMobileRatio ? 'mobile-audio-control' : 'desktop-audio-control'
-        }`}
-      >
-        {soundVolume > 0 ? (
-          <>
-            <FontAwesomeIcon
-              icon={faVolumeHigh}
-              onClick={handleOnclickVolumeIcon}
-            ></FontAwesomeIcon>
-          </>
-        ) : (
-          <>
-            <FontAwesomeIcon
-              icon={faVolumeMute}
-              onClick={handleOnclickVolumeIcon}
-            ></FontAwesomeIcon>
-          </>
-        )}
-        <input
-          className='sound-volume'
-          type='range'
-          min='0'
-          max='1'
-          step='0.05'
-          value={soundVolume}
-          onChange={handleVolumeChange}
-        />
-      </div>
+      <VolumeBar
+        soundVolume={soundVolume}
+        isMobileRatio={isMobileRatio}
+        handleVolumeChange={handleVolumeChange}
+        handleOnclickVolumeIcon={handleOnclickVolumeIcon}
+      />
       <IndexPageRoot isMobileRatio={isMobileRatio} />
-      <div className='footer'>
-        <div className='links'>
-          <a
-            href='https://chzzk.naver.com/live/a9a343510e132ea3026ff3cf682820b5'
-            target='_blank'
-            rel='noreferrer'
-          >
-            <img src={ChzzkLogo} />
-          </a>
-          <a
-            href='https://www.youtube.com/@chunhoe_'
-            target='_blank'
-            rel='noreferrer'
-          >
-            <img src={YoutubeLogo} />
-          </a>
-          <a
-            href='https://cafe.naver.com/chunhoe'
-            target='_blank'
-            rel='noreferrer'
-          >
-            <img src={NaverCafeLogo} />
-          </a>
-        </div>
-        <div className='background-art-author'>Background Art : Melco</div>
-      </div>
+      <Footer />
     </div>
   );
 };

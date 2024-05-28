@@ -2,13 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import '@styles/IndexPageRoot.scss';
 import '@styles/IndexPageRootAnimation.scss';
 import Blossom from './Blossom';
-import BoardConcert from './menu/BoardConcert';
-import BoardFootball from './menu/BoardFootball';
-import { CSSTransition } from 'react-transition-group';
-import MenuButton from './common/Button';
 import Modal from './common/Modal';
 import IntroduceGye from './menu/IntroduceGye';
-import { useMediaQuery } from 'react-responsive';
 import MobileMenu from './menu/MobileMenu';
 import DesktopMenu from './menu/DesktopMenu';
 
@@ -57,7 +52,10 @@ const IndexPageRoot: React.FC<IndexPageRootProps> = ({ isMobileRatio }) => {
   return (
     <div className='main-background'>
       {isMobileRatio ? (
-        <MobileMenu />
+        <MobileMenu
+          handleCloseDisplayBoard={handleCloseDisplayBoard}
+          handleClick={handleClick}
+        />
       ) : (
         <DesktopMenu
           handleModalOpen={handleModalOpen}
@@ -70,11 +68,8 @@ const IndexPageRoot: React.FC<IndexPageRootProps> = ({ isMobileRatio }) => {
         />
       )}
       <Blossom />
-
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-        <>
-          <IntroduceGye isOpen={isModalOpen} />
-        </>
+        <IntroduceGye isOpen={isModalOpen} />
       </Modal>
     </div>
   );

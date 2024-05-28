@@ -22,8 +22,12 @@ $cat-ear-offset: 11px;
   background-position-x: -255px;
 
   color: $dark-grey;
-  font-family: 'noto-sans';
-  font-weight: 400;
+  // font-family: 'noto-sans';
+  // font-family: 'pretendard';
+  font-family: 'GmarketSans';
+
+  line-height: 1.5;
+  font-weight: 500;
 
   .gye-image-container,
   .gye-profile-container {

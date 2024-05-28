@@ -1,0 +1,41 @@
+.mobile-display-container {
+  position: absolute;
+  top: 49px;
+  width: 100vw;
+  background-color: rgb(236, 236, 233);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+
+  .mobile-display-video {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    border-radius: 34px;
+  }
+
+  .mobile-display-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 11px;
+    margin-right: 11px;
+    // background-color: red;
+    border-radius: 10px;
+
+    .mobile-display-link-btn {
+      padding: 8px 14px;
+      margin: 14px 14px;
+      background-color: rgba(245, 245, 220, 0.706);
+      border: none;
+      box-sizing: border-box;
+      border-radius: 8px;
+
+      > svg {
+        font-size: 16px;
+      }
+    }
+  }
+}
