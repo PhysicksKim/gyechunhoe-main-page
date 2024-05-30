@@ -8,11 +8,13 @@ import MobileConcert from './MobileConcert';
 import MobileFootball from './MobileFootball';
 
 export interface MobileMenuProps {
+  handleModalOpen: () => void;
   handleCloseDisplayBoard: () => void;
   handleClick: (component: React.JSX.Element, type: DisplayType) => void;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
+  handleModalOpen,
   handleCloseDisplayBoard,
   handleClick,
 }) => {
@@ -57,6 +59,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             className='mobile-menu-gyechunhoe-btn'
             onClick={() => {
               console.log('gyechunhoe click');
+              handleModalOpen();
             }}
           >
             소개

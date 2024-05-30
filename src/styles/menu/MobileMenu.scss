@@ -18,7 +18,8 @@
   text-wrap: nowrap;
   box-sizing: border-box;
 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.397);
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.397);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.24);
 
   .mobile-menu-left {
     display: flex;

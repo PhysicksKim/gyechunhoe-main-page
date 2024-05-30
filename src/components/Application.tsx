@@ -20,6 +20,12 @@ const Application: React.FC = () => {
     autoplay: true,
   });
   const [prevVolumn, setPrevVolumn] = useState(0);
+
+  // height 780px OR width 880px
+  const isSmallViewport = useMediaQuery({
+    query: '(max-width: 750px), (max-height: 750px)',
+  });
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
   const isMobileRatio = useMediaQuery({ query: '(max-aspect-ratio: 3/5)' });
 
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +53,11 @@ const Application: React.FC = () => {
         handleVolumeChange={handleVolumeChange}
         handleOnclickVolumeIcon={handleOnclickVolumeIcon}
       />
-      <IndexPageRoot isMobileRatio={isMobileRatio} />
+      <IndexPageRoot
+        isSmallViewport={isSmallViewport}
+        isPortrait={isPortrait}
+        isMobileRatio={isMobileRatio}
+      />
       <Footer />
     </div>
   );

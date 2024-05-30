@@ -1,0 +1,73 @@
+// @import '@styles/color.scss';
+
+// $cat-ear-size: 10px;
+// $cat-ear-size-left: 10px;
+// $cat-ear-size-right: 10px;
+// $cat-ear-offset: 11px;
+
+// // portrait ratio
+// .introduce-gye-container.portrait {
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-evenly;
+//   align-items: center;
+//   width: 100%;
+//   height: 100%;
+//   max-height: 100%;
+//   box-sizing: border-box;
+
+//   .gye-profile-title {
+//     h1 {
+//       margin: 0;
+//       margin-top: 10px;
+//       margin-bottom: 5px;
+//     }
+//   }
+
+//   // 스와이프 카드들
+//   .swipe-container {
+//     display: flex;
+//     overflow: hidden;
+//     width: 100%;
+//     position: relative;
+
+//     .swipe-card {
+//       min-width: 100%;
+//       transition: transform 0.3s ease;
+//       flex-shrink: 0;
+//     }
+
+//     .swipe-card-1 {
+//       .gye-image-container {
+//         img {
+//           width: 100%;
+//           height: 100%;
+//           object-fit: cover;
+//           border-radius: 50%;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.introduce-gye-container.portrait {
+  width: 100%;
+  height: 100%;
+}
+
+.swipe-div {
+  width: 100%;
+  height: 100%;
+}
+
+.swipe-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 300%;
+}
+
+.swipe-card {
+  width: 33.3333%;
+  flex-shrink: 0;
+}

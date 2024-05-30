@@ -1,42 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
 import Gye2d03 from '@assets/image/gyechunhoe_live2d_03_.png';
-
 import chunsik from '@assets/image/chunsik_character.png';
-
 import chzzkLogo from '@assets/image/logo_chzzk.png';
 import youtubeLogo from '@assets/image/logo_youtube.png';
 import naverCafeLogo from '@assets/image/logo_naver_cafe.png';
 
-import '@styles/menu/IntroduceGye.scss';
+import '@styles/menu/profile/DesktopProfile.scss';
 
-interface IntroduceGyeProps {
-  isOpen: boolean;
+export interface DesktopProfileProps {
+  animateClass: string;
 }
 
-const IntroduceGye: React.FC<IntroduceGyeProps> = ({ isOpen }) => {
-  const [animateClass, setAnimateClass] = useState('before-animate');
-
-  useEffect(() => {
-    if (isOpen) {
-      const timer = setTimeout(() => {
-        setAnimateClass('after-animate');
-      }, 100);
-      return () => clearTimeout(timer);
-    } else {
-      setAnimateClass('before-animate');
-    }
-  }, [isOpen]);
-
+const DesktopProfile: React.FC<DesktopProfileProps> = ({ animateClass }) => {
   return (
-    <div className={`introduce-gye-container ${isOpen ? 'open' : ''}`}>
-      <div className={`gye-image-container ${animateClass}`}>
-        <figure>
-          <img
-            src={Gye2d03}
-            height={'700px'}
-            alt={'계춘회 live 2d image'}
-          ></img>
-        </figure>
+    <>
+      <div className={`gye-image-container desktop ${animateClass}`}>
+        <img src={Gye2d03} alt={'계춘회 live 2d image'}></img>
       </div>
       <div className={`gye-profile-container ${animateClass}`}>
         <div className='gye-profile'>
@@ -126,8 +106,8 @@ const IntroduceGye: React.FC<IntroduceGyeProps> = ({ isOpen }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default IntroduceGye;
+export default DesktopProfile;

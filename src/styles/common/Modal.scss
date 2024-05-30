@@ -1,6 +1,11 @@
 @import '@styles/color.scss';
 
-.modal-overlay {
+// Landscape mode
+.modal-overlay.desktop,
+.modal-overlay.portrait,
+.modal-overlay.landscape {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -32,19 +37,44 @@
   }
 }
 
-.modal-content {
-  // background: $background-pink-modal;
+.modal-content.desktop {
   background-color: rgb(247, 247, 247);
-  // padding: 20px;
   border-radius: 50px;
-  max-width: 90%;
-  max-height: 90%;
   overflow-y: auto;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-in-out;
+  transition: opacity 0.9s ease-in-out, transform 0.9s ease-in-out;
+  margin-left: 5vw;
+  margin-right: 5vw;
+
+  width: 90vh;
+  height: 78vh;
+  max-width: 850px;
+  max-height: 650px;
 
   @media (max-width: 600px) {
     max-width: 95%;
     padding: 15px;
   }
+}
+
+.modal-content.portrait {
+  background-color: rgb(247, 247, 247);
+  border-radius: 35px;
+  width: 300px;
+  height: 550px;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.modal-content.landscape {
+  background-color: rgb(247, 247, 247);
+  border-radius: 35px;
+  width: 550px;
+  height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s ease-in-out;
+  box-sizing: border-box;
 }
