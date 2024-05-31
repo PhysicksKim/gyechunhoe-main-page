@@ -3,13 +3,17 @@ import React from 'react';
 import chunsik from '@assets/image/chunsik_character.png';
 
 import '@styles/menu/profile/LandscapeProfile.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 export interface LandscapeProfileProps {
   animateClass: string;
+  handleModalClose: () => void;
 }
 
 const LandscapeProfile: React.FC<LandscapeProfileProps> = ({
   animateClass,
+  handleModalClose,
 }) => {
   return (
     <div className='landscape-profile-container'>
@@ -20,6 +24,12 @@ const LandscapeProfile: React.FC<LandscapeProfileProps> = ({
         <div className='gye-profile'>
           <div className='gye-profile-title'>
             <h1>계춘회</h1>
+          </div>
+          <div
+            className='landscape-modal-close-btn'
+            onClick={() => handleModalClose()}
+          >
+            <FontAwesomeIcon icon={faClose} />
           </div>
           <div className='gye-profile-description'>
             <p>

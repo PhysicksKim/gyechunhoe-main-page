@@ -52,6 +52,7 @@ const IndexPageRoot: React.FC<IndexPageRootProps> = ({
   };
 
   const handleModalClose = () => {
+    console.log('handleModalClose');
     setIsModalOpen(false);
   };
 

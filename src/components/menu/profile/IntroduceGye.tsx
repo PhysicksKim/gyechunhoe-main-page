@@ -53,7 +53,10 @@ const IntroduceGye: React.FC<IntroduceGyeProps> = ({
           handleModalClose={handleModalClose}
         />
       ) : (
-        <LandscapeProfile animateClass={animateClass} />
+        <LandscapeProfile
+          animateClass={animateClass}
+          handleModalClose={handleModalClose}
+        />
       )}
     </div>
   );

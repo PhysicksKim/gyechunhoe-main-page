@@ -68,7 +68,11 @@ const PortraitProfile: React.FC<PortraitProfileProps> = ({
             <div className='profile-content fanname-content'>
               춘식이
               <figure className='fanname-image profile-chunsik-character'>
-                <img src={chunsik} alt='춘식이'></img>
+                <img
+                  src={chunsik}
+                  alt='춘식이'
+                  onDragStart={(e) => e.preventDefault()}
+                ></img>
               </figure>
             </div>
           </div>
@@ -81,52 +85,15 @@ const PortraitProfile: React.FC<PortraitProfileProps> = ({
             <div className='profile-content assembly-content'>KAXA</div>
           </div>
         </div>
-        {/* <div className='gye-social'>
-          <div className='social-link-wrapper chzzk-link'>
-            <a
-              href='https://chzzk.naver.com/live/a9a343510e132ea3026ff3cf682820b5'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <img
-                className='profile-social-link'
-                src={chzzkLogo}
-                alt='치지직 로고'
-              ></img>
-            </a>
-          </div>
-          <div className='social-link-wrapper youtube-link'>
-            <a
-              href='https://www.youtube.com/@chunhoe_'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <img
-                className='profile-social-link'
-                src={youtubeLogo}
-                alt='유튜브 로고'
-              ></img>
-            </a>
-          </div>
-          <div className='social-link-wrapper cafe-link'>
-            <a
-              href='https://cafe.naver.com/chunhoe'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <img
-                className='profile-social-link'
-                src={naverCafeLogo}
-                alt='네이버 카페 로고'
-              ></img>
-            </a>
-          </div>
-        </div> */}
       </div>
     </>,
     <>
       <div className={`gye-image-container portrait `}>
-        <img src={Gye2d03} alt='계춘회 live 2d image'></img>
+        <img
+          src={Gye2d03}
+          alt='계춘회 live 2d image'
+          onDragStart={(e) => e.preventDefault()}
+        ></img>
       </div>
     </>,
   ];
@@ -153,6 +120,7 @@ const PortraitProfile: React.FC<PortraitProfileProps> = ({
       return;
     }
   };
+
   const onSwipeEnd = () => {
     if (positionx < -20) {
       setCardCount((cardCount) => cardCount + 1);
@@ -186,6 +154,7 @@ const PortraitProfile: React.FC<PortraitProfileProps> = ({
       </div>
       <Swipe
         className={`swipe-div ${animateClass}`}
+        allowMouseEvents={true}
         onSwipeMove={onSwipeMove}
         onSwipeEnd={onSwipeEnd}
       >
