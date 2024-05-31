@@ -5,8 +5,8 @@
 
   width: 130px;
   background-color: rgba(245, 245, 220, 0.436);
-  color: black;
-  padding: 6px;
+  color: rgb(160, 98, 147);
+  padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   margin: 10px;
@@ -35,7 +35,7 @@
   > input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    background: rgb(255, 255, 255);
+    background: rgb(245, 243, 243);
     border-radius: 50%;
     cursor: pointer;
     height: 10px;

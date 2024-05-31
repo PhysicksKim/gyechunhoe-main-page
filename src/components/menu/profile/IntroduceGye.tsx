@@ -7,6 +7,7 @@ import LandscapeProfile from './LandscapeProfile';
 interface IntroduceGyeProps {
   modalContentRef?: React.Ref<HTMLDivElement>;
   isOpen: boolean;
+  handleModalClose: () => void;
   isSmallViewport: boolean;
   isPortrait: boolean;
   isMobileRatio: boolean;
@@ -15,6 +16,7 @@ interface IntroduceGyeProps {
 const IntroduceGye: React.FC<IntroduceGyeProps> = ({
   modalContentRef,
   isOpen,
+  handleModalClose,
   isSmallViewport,
   isPortrait = false,
   isMobileRatio,
@@ -46,7 +48,10 @@ const IntroduceGye: React.FC<IntroduceGyeProps> = ({
       {!isSmallViewport ? (
         <DesktopProfile animateClass={animateClass} />
       ) : isPortrait ? (
-        <PortraitProfile animateClass={animateClass} />
+        <PortraitProfile
+          animateClass={animateClass}
+          handleModalClose={handleModalClose}
+        />
       ) : (
         <LandscapeProfile animateClass={animateClass} />
       )}

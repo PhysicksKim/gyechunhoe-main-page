@@ -1,0 +1,179 @@
+@import '@styles/color.scss';
+
+$cat-ear-size: 10px;
+$cat-ear-size-left: 10px;
+$cat-ear-size-right: 10px;
+$cat-ear-offset: 10px;
+
+.introduce-gye-container.landscape {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.landscape-profile-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .gye-image-container.landscape {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    padding-right: 0;
+    border-radius: 100px;
+    width: 240px;
+    height: 300px;
+    box-sizing: border-box;
+
+    .landscape-gye-image {
+      width: 196px;
+      height: 260px;
+      overflow: hidden;
+
+      background-image: url('@assets/image/gyechunhoe_live2d_03_.png');
+      background-repeat: no-repeat;
+      background-size: 400px;
+      background-position: top;
+    }
+  }
+
+  .gye-profile-container.landscape {
+    color: $dark-grey;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .gye-profile {
+      padding: 20px;
+      margin-right: 8px;
+      // border: $background-pink-modal 1px solid;
+      border-radius: 30px;
+
+      .gye-profile-title {
+        transform: translateX(8px);
+        h1 {
+          position: relative;
+          color: $profile-name;
+          margin: 0;
+          padding: 0;
+          margin-top: 10px;
+          margin-bottom: 20px;
+        }
+
+        h1::before {
+          content: '';
+          position: absolute;
+          width: 1px;
+          height: 90%;
+          border-left: 3px solid $background-pink-modal;
+          left: -7px;
+          bottom: 3px;
+        }
+      }
+
+      .gye-profile-description {
+        margin-bottom: 15px;
+        p {
+          margin: 0;
+          padding: 0;
+          font-size: 14px;
+          line-height: 1.1rem;
+        }
+      }
+
+      .gye-profile-bio {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        width: 100%;
+        margin-bottom: 12px;
+        margin-left: 3px;
+
+        .profile-item {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .profile-content {
+            position: relative;
+            text-align: center;
+            font-size: 14px;
+          }
+
+          // .profile-item:nth-child(odd) {
+          //   justify-self: end;
+          //   margin-right: 4px;
+          // }
+          // .profile-item:nth-child(even) {
+          //   justify-self: start;
+          //   margin-left: 4px;
+          // }
+
+          .fanname-content > figure {
+            position: absolute;
+            bottom: -17px;
+            right: -38px;
+            margin: 0;
+            padding: 0;
+
+            > img {
+              width: 34px;
+            }
+          }
+
+          .cat-box {
+            position: relative;
+            box-sizing: border-box;
+            width: 85px;
+            height: 22px;
+            border: 1px solid $profile-cat-box-border;
+            border-radius: 15px;
+            margin-top: calc($cat-ear-size + 5%);
+
+            padding-top: 1px;
+            padding-bottom: 1px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 20px;
+          }
+
+          .cat-box::before,
+          .cat-box::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+          }
+
+          .cat-box::before {
+            top: -$cat-ear-size;
+            left: $cat-ear-offset;
+            border-width: 0 $cat-ear-size-left $cat-ear-size $cat-ear-size-right; /* 비대칭 삼각형 */
+            border-color: transparent transparent $profile-cat-box-border
+              transparent;
+          }
+
+          .cat-box::after {
+            top: -$cat-ear-size;
+            right: $cat-ear-offset;
+            border-width: 0 $cat-ear-size-left $cat-ear-size $cat-ear-size-right; /* 비대칭 삼각형 */
+            border-color: transparent transparent $profile-cat-box-border
+              transparent;
+          }
+        }
+      }
+    }
+  }
+}

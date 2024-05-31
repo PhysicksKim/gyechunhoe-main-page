@@ -1,3 +1,5 @@
+@import '@styles/color.scss';
+
 .mobile-display-container {
   position: absolute;
   top: 49px;
@@ -9,11 +11,22 @@
   align-items: center;
   z-index: 1;
 
-  .mobile-display-video {
-    box-sizing: border-box;
-    width: 100%;
+  .mobile-display-video-wrapper {
     padding: 20px;
-    border-radius: 34px;
+    box-sizing: border-box;
+
+    .mobile-display-video-frame {
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .mobile-display-video {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border-radius: 15px;
+      }
+    }
   }
 
   .mobile-display-buttons {
@@ -22,21 +35,21 @@
     right: 0;
     margin-top: 11px;
     margin-right: 11px;
-    // background-color: red;
     border-radius: 10px;
 
     .mobile-display-link-btn {
       padding: 12px 20px;
       margin: 9px 9px;
-      background-color: rgba(39, 39, 36, 0.747);
+      background-color: rgba(39, 39, 36, 0.75);
       border: none;
       box-sizing: border-box;
       border-top-right-radius: 8px;
       border-bottom-left-radius: 8px;
+      backdrop-filter: blur(10px);
 
       > svg {
         font-size: 16px;
-        color: pink;
+        color: $soft-white;
       }
     }
   }

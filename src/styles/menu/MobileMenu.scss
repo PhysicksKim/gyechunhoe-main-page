@@ -1,3 +1,12 @@
+@import '@styles/color.scss';
+
+.mobile-menu-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .mobile-menu-bar {
   position: absolute;
   top: 0;
@@ -13,7 +22,8 @@
   z-index: 99;
 
   color: black;
-  font-family: 'NanumSquareNeo';
+  // font-family: 'Pretendard';
+  font-family: 'GmarketSans';
   font-weight: 400;
   text-wrap: nowrap;
   box-sizing: border-box;
@@ -25,7 +35,7 @@
     display: flex;
     flex-direction: row;
     padding-bottom: 8px;
-    margin-left: 28px;
+    margin-left: 18px;
     width: 100px;
 
     > div {
@@ -34,9 +44,13 @@
     }
 
     .page-title {
-      font-size: 24px;
-      font-weight: 400;
+      font-size: 23px;
       font-family: 'GmarketSans';
+      // font-family: 'Cafe24Ssurround';
+      // font-family: 'YESGothic-Regular';
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: $profile-name;
     }
   }
 
@@ -45,14 +59,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: 18px;
-    margin-right: 16px;
+    font-size: 15px;
+    margin-right: 10px;
     padding-bottom: 10px;
     vertical-align: text-bottom;
 
-    width: 230px;
+    width: 180px;
 
     > div {
+      position: relative;
       text-align: center;
       font-weight: 400;
       width: 70px;
@@ -68,4 +83,40 @@
       box-sizing: border-box;
     }
   }
+}
+
+.mobile-display-container {
+  transition: transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.mobile-display-container.before-animate {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+.mobile-display-container.after-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-menu-gyechunhoe-btn::before,
+.mobile-menu-concert-btn::before,
+.mobile-menu-football-btn::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-bottom: 1px solid black;
+  transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  width: 50%;
+  opacity: 0;
+}
+
+.mobile-menu-gyechunhoe-btn.selected::before,
+.mobile-menu-concert-btn.selected::before,
+.mobile-menu-football-btn.selected::before {
+  width: 75%;
+  opacity: 1;
 }

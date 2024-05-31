@@ -59,7 +59,9 @@ const IndexPageRoot: React.FC<IndexPageRootProps> = ({
     <div className='main-background'>
       {isMobileRatio ? (
         <MobileMenu
+          isModalOpen={isModalOpen}
           handleModalOpen={handleModalOpen}
+          handleModalClose={handleModalClose}
           handleCloseDisplayBoard={handleCloseDisplayBoard}
           handleClick={handleClick}
         />
@@ -84,6 +86,7 @@ const IndexPageRoot: React.FC<IndexPageRootProps> = ({
       >
         <IntroduceGye
           isOpen={isModalOpen}
+          handleModalClose={handleModalClose}
           isSmallViewport={isSmallViewport}
           isPortrait={isPortrait}
           isMobileRatio={isMobileRatio}

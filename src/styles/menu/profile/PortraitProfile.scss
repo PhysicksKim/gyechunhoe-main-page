@@ -1,55 +1,9 @@
-// @import '@styles/color.scss';
+@import '@styles/color.scss';
 
-// $cat-ear-size: 10px;
-// $cat-ear-size-left: 10px;
-// $cat-ear-size-right: 10px;
-// $cat-ear-offset: 11px;
-
-// // portrait ratio
-// .introduce-gye-container.portrait {
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-//   align-items: center;
-//   width: 100%;
-//   height: 100%;
-//   max-height: 100%;
-//   box-sizing: border-box;
-
-//   .gye-profile-title {
-//     h1 {
-//       margin: 0;
-//       margin-top: 10px;
-//       margin-bottom: 5px;
-//     }
-//   }
-
-//   // 스와이프 카드들
-//   .swipe-container {
-//     display: flex;
-//     overflow: hidden;
-//     width: 100%;
-//     position: relative;
-
-//     .swipe-card {
-//       min-width: 100%;
-//       transition: transform 0.3s ease;
-//       flex-shrink: 0;
-//     }
-
-//     .swipe-card-1 {
-//       .gye-image-container {
-//         img {
-//           width: 100%;
-//           height: 100%;
-//           object-fit: cover;
-//           border-radius: 50%;
-//         }
-//       }
-//     }
-//   }
-// }
+$cat-ear-size: 10px;
+$cat-ear-size-left: 10px;
+$cat-ear-size-right: 10px;
+$cat-ear-offset: 11px;
 
 .introduce-gye-container.portrait {
   width: 100%;
@@ -70,4 +24,274 @@
 .swipe-card {
   width: 33.3333%;
   flex-shrink: 0;
+}
+
+.portrait-profile {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+
+  .gye-profile-title {
+    h1 {
+      margin: 0;
+      margin-top: 20px;
+      margin-bottom: 3px;
+      color: $dark-grey;
+      padding-bottom: 3px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-bottom: 1px solid $dark-grey;
+    }
+  }
+
+  .gye-profile-modal-close-btn {
+    position: absolute;
+    right: 18px;
+    top: 19px;
+    color: $soft-white;
+    background-color: $dark-grey;
+    padding: 5px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gye-image-container {
+    width: 100%;
+    height: 440px;
+    overflow: hidden;
+    margin-top: 10px;
+    opacity: 1; // DesktopProfile.scss 에서 0으로 설정해두고 있어서 덮어써야함
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .gye-profile-description-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .gye-description-image {
+      width: 300px;
+      height: 442px;
+      background-image: url('@assets/image/gyechunhoe_live2d_03_.png');
+      background-repeat: no-repeat;
+      background-size: 600px;
+      background-position: top;
+      background-position-x: -155px;
+      overflow: hidden;
+    }
+
+    .gye-profile-description-wrapper {
+      position: absolute;
+      bottom: 30px;
+      background-color: #ffffffcc;
+      width: 85%;
+      padding: 5px;
+      border-radius: 30px;
+      border: $background-pink-modal 1px solid;
+      backdrop-filter: blur(5px);
+      overflow: hidden;
+
+      .gye-profile-description {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        padding: 3px 20px;
+        line-height: 1.4;
+        font-size: 14px;
+        color: $dark-grey;
+
+        p {
+          margin: 0;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .gye-profile-bio-container {
+    width: 100%;
+    height: 440px;
+    // background-color: red;
+    background-image: url('@assets/image/gyechunhoe_live2d_03_transparent.png');
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    background-position: top;
+    background-position-y: -150px;
+    background-position-x: -350px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    .gye-profile-bio-picture {
+      background-image: url('@assets/image/gyechunhoe_live2d_03_.png');
+      background-repeat: no-repeat;
+      background-size: 800px;
+      background-position: top;
+      background-position-y: -30px;
+      background-position-x: -250px;
+
+      width: 100%;
+      height: 230px;
+    }
+
+    .gye-profile-catbox-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      width: 90%;
+      padding-bottom: 12px;
+      padding-top: 10px;
+      margin-bottom: 5px;
+
+      background-color: #ffffffcc;
+      border-radius: 20px;
+      // border: $background-pink-modal 1px solid;
+
+      .profile-content {
+        position: relative;
+        text-align: center;
+        margin-top: 3px;
+      }
+
+      .profile-item:nth-child(odd) {
+        justify-self: end;
+        margin-right: 4px;
+      }
+      .profile-item:nth-child(even) {
+        justify-self: start;
+        margin-left: 4px;
+      }
+
+      .fanname-content > figure {
+        position: absolute;
+        bottom: -15px;
+        right: -15px;
+        margin: 0;
+        padding: 0;
+
+        > img {
+          width: 38px;
+        }
+      }
+
+      .cat-box {
+        position: relative;
+        width: 90px;
+        height: 25px;
+        border: 1px solid $profile-cat-box-border;
+        border-radius: 13px;
+        margin-top: calc($cat-ear-size + 5%);
+
+        font-weight: 600;
+        text-align: center;
+        line-height: 26px;
+      }
+
+      .cat-box::before,
+      .cat-box::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+
+      .cat-box::before {
+        top: -$cat-ear-size;
+        left: $cat-ear-offset;
+        border-width: 0 $cat-ear-size-left $cat-ear-size $cat-ear-size-right; /* 비대칭 삼각형 */
+        border-color: transparent transparent $profile-cat-box-border
+          transparent;
+      }
+
+      .cat-box::after {
+        top: -$cat-ear-size;
+        right: $cat-ear-offset;
+        border-width: 0 $cat-ear-size-left $cat-ear-size $cat-ear-size-right; /* 비대칭 삼각형 */
+        border-color: transparent transparent $profile-cat-box-border
+          transparent;
+      }
+    }
+  }
+
+  .slide-buttons {
+    position: relative;
+    // background-color: rgba(255, 0, 0, 0.315);
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+
+    .slide-button-left,
+    .slide-button-right {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+      background-color: $dark-grey;
+      color: #e9e9e9;
+      box-sizing: border-box;
+      border-radius: 50%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide-button-left {
+      padding-right: 1px;
+    }
+    .slide-button-right {
+      padding-left: 1px;
+    }
+  }
+}
+
+.portrait-profile {
+  transition: opacity 0.3s ease;
+}
+.gye-profile-title {
+  transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+}
+
+.portrait-profile.before-animate {
+  opacity: 0;
+}
+.portrait-profile.after-animate {
+  opacity: 1;
+}
+
+.gye-profile-title.before-animate {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.gye-profile-title.after-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.swipe-div.before-animate {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.swipe-div.after-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
