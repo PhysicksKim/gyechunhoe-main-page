@@ -137,12 +137,12 @@ $cat-ear-offset: 11px;
     width: 100%;
     height: 440px;
     // background-color: red;
-    background-image: url('@assets/image/gyechunhoe_live2d_03_transparent.png');
+    background-image: url('@assets/image/gyechunhoe_live2d_profile_card2_transparent.png');
     background-repeat: no-repeat;
     background-size: 1000px;
     background-position: top;
-    background-position-y: -150px;
-    background-position-x: -350px;
+    background-position-y: -110px;
+    background-position-x: -335px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -150,12 +150,12 @@ $cat-ear-offset: 11px;
     align-items: center;
 
     .gye-profile-bio-picture {
-      background-image: url('@assets/image/gyechunhoe_live2d_03_.png');
+      background-image: url('@assets/image/gyechunhoe_live2d_profile_card2.png');
       background-repeat: no-repeat;
-      background-size: 800px;
+      background-size: 870px;
       background-position: top;
-      background-position-y: -30px;
-      background-position-x: -250px;
+      background-position-y: -80px;
+      background-position-x: -273px;
 
       width: 100%;
       height: 230px;
