@@ -22,6 +22,7 @@ export const CardWrapperDiv = styled.div<CardDivProps>`
     ${({ positionx, cardCount }) =>
       `calc(${positionx}px + ${-100 * (cardCount - 1)}%)`}
   );
+  user-select: none;
 `;
 
 export const CardItem = styled.div`

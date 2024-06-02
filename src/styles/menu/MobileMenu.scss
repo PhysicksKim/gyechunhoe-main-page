@@ -51,6 +51,8 @@
       font-weight: 600;
       letter-spacing: 1px;
       color: $profile-name;
+
+      user-select: none;
     }
   }
 
@@ -96,6 +98,11 @@
 .mobile-display-container.after-animate {
   transform: translateY(0);
   opacity: 1;
+}
+
+.mobile-menu-btn {
+  cursor: pointer;
+  user-select: none;
 }
 
 .mobile-menu-gyechunhoe-btn::before,

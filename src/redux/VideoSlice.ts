@@ -48,8 +48,6 @@ const videoSlice = createSlice({
       .addCase(
         fetchVideoBlob.fulfilled,
         (state, action: PayloadAction<FetchVideoBlobArgs>) => {
-          console.log('fulfilled');
-          console.log(action.payload);
           const { url, type } = action.payload;
           if (type === 'concert') {
             state.concertBlobUrl = url;

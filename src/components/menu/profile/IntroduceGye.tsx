@@ -34,11 +34,6 @@ const IntroduceGye: React.FC<IntroduceGyeProps> = ({
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    console.log(`isPortrait: ${isPortrait}`);
-    console.log(`isSmallViewport: ${isSmallViewport}`);
-  }, [isPortrait, isSmallViewport]);
-
   return (
     <div
       className={`introduce-gye-container ${isOpen ? 'open' : ''} ${

@@ -41,7 +41,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   }, [isModalOpen, displayType]);
 
   const handleMouseDown = (e: MouseEvent) => {
-    console.log('handleMouseDown');
     if (!menuBarRef.current) return;
     if (!menuDisplayRef.current) return;
     if (isModalOpen) return;
@@ -64,8 +63,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     const right = barR > displayR ? barR : displayR;
     const top = barT < displayT ? barT : displayT;
     const bottom = barB > displayB ? barB : displayB;
-
-    console.log(`display : ${displayL}, ${displayR}, ${displayT}, ${displayB}`);
 
     if (
       clientX < left ||
@@ -127,7 +124,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         </div>
         <div className='mobile-menu-right'>
           <div
-            className={`mobile-menu-gyechunhoe-btn ${
+            className={`mobile-menu-btn mobile-menu-gyechunhoe-btn ${
               selectedMenu === 'profile' ? 'selected' : ''
             }`}
             onClick={() => handleGyeChunHoeClick()}
@@ -135,7 +132,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             소개
           </div>
           <div
-            className={`mobile-menu-concert-btn ${
+            className={`mobile-menu-btn mobile-menu-concert-btn ${
               selectedMenu === 'concert' ? 'selected' : ''
             }`}
             onClick={() => {
@@ -150,7 +147,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             콘서트
           </div>
           <div
-            className={`mobile-menu-football-btn ${
+            className={`mobile-menu-btn mobile-menu-football-btn ${
               selectedMenu === 'football' ? 'selected' : ''
             }`}
             onClick={() => {
