@@ -167,14 +167,15 @@ $cat-ear-offset: 11px;
           text-align: center;
 
           display: flex;
-          flex-direction: column;
-          justify-content: center;
+          flex-direction: column-reverse;
+          justify-content: end;
+          align-items: center;
           box-sizing: content-box;
+          flex-shrink: 1;
 
           .cat-box-vertical-aligner {
-            margin-top: 2px;
-            text-align: center;
             box-sizing: border-box;
+            height: 22px;
           }
         }
 

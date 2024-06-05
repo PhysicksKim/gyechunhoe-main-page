@@ -87,3 +87,8 @@ typings/
 
 # Distributions
 dist/
+
+# https 인증서 
+localhost-key.pem
+localhost.pem
+localhost.csr
