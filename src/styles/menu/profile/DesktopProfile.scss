@@ -165,7 +165,17 @@ $cat-ear-offset: 11px;
 
           font-weight: 600;
           text-align: center;
-          line-height: 28px;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          box-sizing: content-box;
+
+          .cat-box-vertical-aligner {
+            margin-top: 2px;
+            text-align: center;
+            box-sizing: border-box;
+          }
         }
 
         .cat-box::before,

@@ -32,19 +32,27 @@ const DesktopProfile: React.FC<DesktopProfileProps> = ({ animateClass }) => {
           </div>
           <div className='gye-profile-bio'>
             <div className='profile-item profile-item-01 birth-wrapper'>
-              <div className='cat-box birth-title'>생일</div>
+              <div className='cat-box birth-title'>
+                <div className='cat-box-vertical-aligner'>생일</div>
+              </div>
               <div className='profile-content birth-content'>1월 8일</div>
             </div>
             <div className='profile-item profile-item-02 height-wrapper'>
-              <div className='cat-box height-title'>키</div>
+              <div className='cat-box height-title'>
+                <div className='cat-box-vertical-aligner'>키</div>
+              </div>
               <div className='profile-content height-content'>163.8cm</div>
             </div>
             <div className='profile-item profile-item-03 age-wrapper'>
-              <div className='cat-box age-title'>나이</div>
+              <div className='cat-box age-title'>
+                <div className='cat-box-vertical-aligner'>나이</div>
+              </div>
               <div className='profile-content age-content'>예쁜나이</div>
             </div>
             <div className='profile-item profile-item-04 fanname-wrapper'>
-              <div className='cat-box fanname-title'>팬네임</div>
+              <div className='cat-box fanname-title'>
+                <div className='cat-box-vertical-aligner'>팬네임</div>
+              </div>
               <div className='profile-content fanname-content'>
                 춘식이
                 <figure className='fanname-image profile-chunsik-character'>
@@ -53,13 +61,17 @@ const DesktopProfile: React.FC<DesktopProfileProps> = ({ animateClass }) => {
               </div>
             </div>
             <div className='profile-item profile-item-05 manufacturer-wrapper'>
-              <div className='cat-box manufacturer-title'>제조</div>
+              <div className='cat-box manufacturer-title'>
+                <div className='cat-box-vertical-aligner'>제조</div>
+              </div>
               <div className='profile-content manufacturer-content'>
                 Sonsiru
               </div>
             </div>
             <div className='profile-item profile-item-06 assembly-wrapper'>
-              <div className='cat-box assembly-title'>조립</div>
+              <div className='cat-box assembly-title'>
+                <div className='cat-box-vertical-aligner'>조립</div>
+              </div>
               <div className='profile-content assembly-content'>KAXA</div>
             </div>
           </div>
