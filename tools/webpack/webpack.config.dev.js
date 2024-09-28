@@ -30,8 +30,6 @@ module.exports = {
     https: {
       key: fs.readFileSync(path.resolve(__dirname, '../../localhost-key.pem')), // 개인 키 경로
       cert: fs.readFileSync(path.resolve(__dirname, '../../localhost.pem')), // 인증서 경로
-      // key: fs.readFileSync(path.join(__dirname, 'localhost-key.pem')), // 개인 키 경로
-      // cert: fs.readFileSync(path.join(__dirname, 'localhost.pem')), // 인증서 경로
     },
   },
   optimization: {
