@@ -6,6 +6,7 @@ import '@styles/Application.scss';
 import '@styles/Fonts.scss';
 
 import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
+import GyeSanabiMp3Re2 from '@assets/audio/gyechunhoe-sanabiost_re2.mp3';
 
 import MediaPreloader from './MediaPreloader';
 import { useMediaQuery } from 'react-responsive';
@@ -14,7 +15,7 @@ import Footer from './Footer';
 
 const Application: React.FC = () => {
   const [soundVolume, setSoundVolume] = useState(0.15);
-  const [play, exposedData] = useSound(GyeSanabiMp3, {
+  const [play, exposedData] = useSound(GyeSanabiMp3Re2, {
     volume: soundVolume,
     loop: true,
     autoplay: true,
