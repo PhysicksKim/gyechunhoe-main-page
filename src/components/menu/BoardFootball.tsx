@@ -22,7 +22,7 @@ const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
 
   const handleMoveToScoreboard = () => {
     // 새 탭에서 스코어보드 페이지로 이동
-    window.open('https://gyechunsik.site/scoreboard', '_blank');
+    window.open('https://gyechunhoe.com/scoreboard', '_blank');
   };
 
   return (
