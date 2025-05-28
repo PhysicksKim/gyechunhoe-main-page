@@ -2,6 +2,16 @@ import React, { useEffect, useRef, MouseEvent } from 'react';
 import '@styles/common/Modal.scss';
 import { CSSTransition } from 'react-transition-group';
 
+export interface ModalOption {
+  minWidth?: string;
+  maxWidth?: string;
+  minHeight?: string;
+  maxHeight?: string;
+  isResponsive?: boolean;
+  margin?: string;
+  customClass?: string;
+}
+
 export interface ModalProps {
   isOpen: boolean;
   children: React.ReactNode;
@@ -9,7 +19,18 @@ export interface ModalProps {
   isPortrait?: boolean;
   isMobileRatio?: boolean;
   onClose: () => void;
+  options?: ModalOption;
 }
+
+const defaultOptions: ModalOption = {
+  minWidth: '300px',
+  maxWidth: '90vw',
+  minHeight: '200px',
+  maxHeight: '90vh',
+  isResponsive: true,
+  margin: '20px',
+  customClass: '',
+};
 
 const Modal: React.FC<ModalProps> = ({
   isOpen,
@@ -18,6 +39,7 @@ const Modal: React.FC<ModalProps> = ({
   isPortrait,
   isMobileRatio,
   onClose,
+  options = defaultOptions,
 }) => {
   const modalContentRef = useRef<HTMLDivElement>(null);
   const modalOverlayRef = useRef<HTMLDivElement>(null);
@@ -81,6 +103,10 @@ const Modal: React.FC<ModalProps> = ({
         element.classList.remove('portrait');
         element.classList.remove('desktop');
       }
+
+      if (options.customClass) {
+        element.classList.add(options.customClass);
+      }
     });
   };
 
@@ -90,12 +116,33 @@ const Modal: React.FC<ModalProps> = ({
       modalOverlayRef.current,
       modalContentRef.current,
     );
-  }, [isSmallViewport, isPortrait, isMobileRatio, isOpen]);
+  }, [isSmallViewport, isPortrait, isMobileRatio, isOpen, options.customClass]);
+
+  const getModalContentStyle = () => {
+    const style: React.CSSProperties = {};
+
+    if (options.isResponsive) {
+      style.minWidth = options.minWidth;
+      style.maxWidth = options.maxWidth;
+      style.minHeight = options.minHeight;
+      style.maxHeight = options.maxHeight;
+      style.margin = options.margin;
+    } else {
+      style.width = options.minWidth;
+      style.height = options.minHeight;
+    }
+
+    return style;
+  };
 
   return (
     <CSSTransition in={isOpen} timeout={300} classNames='modal' unmountOnExit>
       <div ref={modalOverlayRef} className='modal-overlay'>
-        <div ref={modalContentRef} className='modal-content'>
+        <div
+          ref={modalContentRef}
+          className='modal-content'
+          style={getModalContentStyle()}
+        >
           {children}
         </div>
       </div>

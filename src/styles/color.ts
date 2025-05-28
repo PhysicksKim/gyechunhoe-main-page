@@ -1,0 +1,15 @@
+export const colors = {
+  desertSand: '#e1c699',
+  darkBrown: '#4e342e',
+  navyBlue: '#2c3e50',
+  darkGrey: '#333333',
+  darkGreyHover: '#7e7e7e',
+  backgroundPinkTransparent: '#f5c5cccc',
+  backgroundPinkModal: 'rgb(252, 186, 197)',
+  borderPink: '#f33e3e',
+  profileCatBoxBorder: '#ffb8b8',
+  profileCatBoxBackground: '#f5c5cc',
+  profileName: '#9b404f',
+  softWhite: '#f7f7f7',
+  softBrightWhite: '#f9f9f9',
+};

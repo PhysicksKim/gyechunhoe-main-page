@@ -54,7 +54,7 @@
 
     .btn-gyechunhoe,
     .btn-concert,
-    .btn-football {
+    .btn-contents {
       position: absolute;
       box-sizing: border-box;
       border: none;
@@ -86,7 +86,7 @@
       width: var(--btn-gyechunhoe-width);
     }
     .btn-concert,
-    .btn-football {
+    .btn-contents {
       height: var(--btn-concert-height);
       width: var(--btn-concert-width);
     }
@@ -100,9 +100,9 @@
       top: var(--btn-concert-top);
       left: var(--btn-concert-left);
     }
-    .btn-football {
-      top: var(--btn-football-top);
-      left: var(--btn-football-left);
+    .btn-contents {
+      top: var(--btn-contents-top);
+      left: var(--btn-contents-left);
     }
   }
 
@@ -119,8 +119,8 @@
       &.concert {
         background-image: url(/assets/image/displayboard_concert_modi_01.png);
       }
-      &.football {
-        background-image: url(/assets/image/displayboard_football_modi_01.png);
+      &.contents {
+        background-image: url(/assets/image/displayboard_contents.png);
       }
       background-repeat: no-repeat;
       height: 100%;
@@ -130,5 +130,14 @@
       background-position: var(--display-board-position-x)
         var(--display-board-position-y);
     }
+  }
+}
+
+.btn-contents {
+  top: var(--btn-contents-top);
+  left: var(--btn-contents-left);
+
+  &.contents {
+    background-image: url(/assets/image/displayboard_contents.png);
   }
 }

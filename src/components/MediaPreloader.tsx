@@ -42,7 +42,7 @@ const MediaPreloader: React.FC = () => {
         // style={{ zIndex: -99, background: 'none', position: 'absolute' }}
         style={{ display: 'none' }}
       >
-        <source src={MediaUrls.footballVideoPreview}></source>
+        <source src={MediaUrls.contentsVideoPreview}></source>
       </video>
     </>
   );

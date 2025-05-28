@@ -2,23 +2,33 @@ import React, { useEffect, useState } from 'react';
 import '@styles/menu/MobileMenu.scss';
 import { DisplayType } from '../IndexPageRoot';
 import MobileConcert from './MobileConcert';
-import MobileFootball from './MobileFootball';
+import ContentsModal from './contents/ContentModal';
 
 export interface MobileMenuProps {
-  isModalOpen: boolean;
-  handleModalOpen: () => void;
+  isGyeIntroOpen: boolean;
+  isContentsOpen: boolean;
+  handleGyeProfileModalOpen: () => void;
+  handleContentModalOpen: () => void;
   handleModalClose: () => void;
   handleCloseDisplayBoard: () => void;
   handleClick: (component: React.JSX.Element, type: DisplayType) => void;
+  isSmallViewport: boolean;
+  isPortrait: boolean;
+  isMobileRatio: boolean;
 }
 
-export type SelectedMenu = 'profile' | 'concert' | 'football' | '';
+export type SelectedMenu = 'profile' | 'concert' | 'contents' | '';
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
-  isModalOpen,
-  handleModalOpen,
+  isGyeIntroOpen,
+  isContentsOpen,
+  handleGyeProfileModalOpen,
+  handleContentModalOpen,
   handleModalClose,
   handleCloseDisplayBoard,
+  isSmallViewport,
+  isPortrait,
+  isMobileRatio,
 }) => {
   const [displayComponent, setDisplayComponent] =
     useState<React.JSX.Element>(null);
@@ -29,21 +39,21 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   const menuDisplayRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isModalOpen) {
+    if (isGyeIntroOpen) {
       setSelectedMenu('profile');
     } else if (displayType === 'concert') {
       setSelectedMenu('concert');
-    } else if (displayType === 'football') {
-      setSelectedMenu('football');
+    } else if (isContentsOpen) {
+      setSelectedMenu('contents');
     } else {
       setSelectedMenu('');
     }
-  }, [isModalOpen, displayType]);
+  }, [isGyeIntroOpen, isContentsOpen, displayType]);
 
   const handleMouseDown = (e: MouseEvent) => {
     if (!menuBarRef.current) return;
     if (!menuDisplayRef.current) return;
-    if (isModalOpen) return;
+    if (isGyeIntroOpen) return;
 
     const { clientX, clientY } = e;
     const {
@@ -93,7 +103,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     type: DisplayType,
     nowType: DisplayType,
   ) => {
-    // 이미 해당 컴포넌트가 떠있는 경우 || 컴포넌트를 close 하고 싶은 경우
     if (nowType === type || type === '') {
       setDisplayComponent(null);
       setDisplayType('');
@@ -103,17 +112,21 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     if (type === 'concert') {
       setDisplayComponent(mountComponent);
       setDisplayType('concert');
-    } else if (type === 'football') {
-      setDisplayComponent(mountComponent);
-      setDisplayType('football');
     }
   };
 
   const handleGyeChunHoeClick = () => {
-    handleModalOpen();
-    handleCloseDisplayBoard();
+    handleGyeProfileModalOpen();
     setSelectedMenu('profile');
     toggleDisplayMenu(null, '', '');
+    handleCloseDisplayBoard();
+  };
+
+  const wrappedHandleContentModalOpen = () => {
+    handleContentModalOpen();
+    setSelectedMenu('contents');
+    toggleDisplayMenu(null, '', '');
+    handleCloseDisplayBoard();
   };
 
   return (
@@ -147,19 +160,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             콘서트
           </div>
           <div
-            className={`mobile-menu-btn mobile-menu-football-btn ${
-              selectedMenu === 'football' ? 'selected' : ''
+            className={`mobile-menu-btn mobile-menu-contents-btn ${
+              selectedMenu === 'contents' ? 'selected' : ''
             }`}
-            onClick={() => {
-              toggleDisplayMenu(
-                <MobileFootball containerRef={menuDisplayRef} />,
-                'football',
-                displayType,
-              );
-              setSelectedMenu('football');
-            }}
+            onClick={wrappedHandleContentModalOpen}
           >
-            축구
+            컨텐츠
           </div>
         </div>
       </div>

@@ -6,8 +6,9 @@ import Modal from './common/Modal';
 import IntroduceGye from './menu/profile/IntroduceGye';
 import MobileMenu from './menu/MobileMenu';
 import DesktopMenu from './menu/DesktopMenu';
+import ContentsModal from './menu/contents/ContentModal';
 
-export type DisplayType = '' | 'concert' | 'football';
+export type DisplayType = '' | 'concert' | 'contents';
 
 export interface IndexPageRootProps {
   isMobileRatio: boolean;
@@ -24,7 +25,8 @@ const IndexPageRoot: React.FC<IndexPageRootProps> = ({
   const [displayComponent, setDisplayComponent] =
     useState<React.JSX.Element | null>(null);
   const [nowShowing, setNowShowing] = useState<DisplayType>('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isGyeProfileModalOpen, setIsGyeProfileModalOpen] = useState(false);
+  const [isContentModalOpen, setIsContentModalOpen] = useState(false);
 
   const handleClick = (component: React.JSX.Element, type: DisplayType) => {
     if (nowShowing === type) {
@@ -45,29 +47,42 @@ const IndexPageRoot: React.FC<IndexPageRootProps> = ({
     setNowShowing('');
   };
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
+  const handleGyeProfileModalOpen = () => {
+    setIsGyeProfileModalOpen(true);
+    setDisplayComponent(null);
+    setNowShowing('');
+  };
+
+  const handleContentModalOpen = () => {
+    setIsContentModalOpen(true);
     setDisplayComponent(null);
     setNowShowing('');
   };
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
+    setIsGyeProfileModalOpen(false);
+    setIsContentModalOpen(false);
   };
 
   return (
     <div className='main-background'>
       {isMobileRatio ? (
         <MobileMenu
-          isModalOpen={isModalOpen}
-          handleModalOpen={handleModalOpen}
+          handleGyeProfileModalOpen={handleGyeProfileModalOpen}
+          handleContentModalOpen={handleContentModalOpen}
           handleModalClose={handleModalClose}
           handleCloseDisplayBoard={handleCloseDisplayBoard}
           handleClick={handleClick}
+          isGyeIntroOpen={isGyeProfileModalOpen}
+          isContentsOpen={isContentModalOpen}
+          isSmallViewport={isSmallViewport}
+          isPortrait={isPortrait}
+          isMobileRatio={isMobileRatio}
         />
       ) : (
         <DesktopMenu
-          handleModalOpen={handleModalOpen}
+          handleGyeProfileModalOpen={handleGyeProfileModalOpen}
+          handleContentModalOpen={handleContentModalOpen}
           handleCloseDisplayBoard={handleCloseDisplayBoard}
           handleClick={handleClick}
           handleExited={handleExited}
@@ -78,15 +93,30 @@ const IndexPageRoot: React.FC<IndexPageRootProps> = ({
       )}
       <Blossom />
       <Modal
-        isOpen={isModalOpen}
         onClose={handleModalClose}
+        isOpen={isGyeProfileModalOpen}
         isSmallViewport={isSmallViewport}
         isPortrait={isPortrait}
         isMobileRatio={isMobileRatio}
       >
         <IntroduceGye
-          isOpen={isModalOpen}
           handleModalClose={handleModalClose}
+          isOpen={isGyeProfileModalOpen}
+          isSmallViewport={isSmallViewport}
+          isPortrait={isPortrait}
+          isMobileRatio={isMobileRatio}
+        />
+      </Modal>
+      <Modal
+        onClose={handleModalClose}
+        isOpen={isContentModalOpen}
+        isSmallViewport={isSmallViewport}
+        isPortrait={isPortrait}
+        isMobileRatio={isMobileRatio}
+      >
+        <ContentsModal
+          handleModalClose={handleModalClose}
+          isOpen={isContentModalOpen}
           isSmallViewport={isSmallViewport}
           isPortrait={isPortrait}
           isMobileRatio={isMobileRatio}

@@ -4,21 +4,21 @@ import axios from 'axios';
 
 interface VideoState {
   concertBlobUrl: string | null;
-  footballBlobUrl: string | null;
+  contentsBlobUrl: string | null;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
 const initialState: VideoState = {
   concertBlobUrl: null,
-  footballBlobUrl: null,
+  contentsBlobUrl: null,
   status: 'idle',
   error: null,
 };
 
 interface FetchVideoBlobArgs {
   url: string;
-  type: 'concert' | 'football';
+  type: 'concert' | 'contents';
 }
 
 export const fetchVideoBlob = createAsyncThunk<
@@ -51,8 +51,8 @@ const videoSlice = createSlice({
           const { url, type } = action.payload;
           if (type === 'concert') {
             state.concertBlobUrl = url;
-          } else if (type === 'football') {
-            state.footballBlobUrl = url;
+          } else if (type === 'contents') {
+            state.contentsBlobUrl = url;
           }
           state.status = 'succeeded';
         },

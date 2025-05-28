@@ -1,24 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '@styles/menu/BoardFootball.scss';
+import '@styles/menu/BoardContents.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@src/redux/Store';
 import MediaUrls from '@src/class/MediaUrls';
 
-interface BoardFootballProps {
+interface BoardContentsProps {
   closeWindow: () => void;
 }
 
-const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
+const BoardContents = ({ closeWindow }: BoardContentsProps) => {
   const sourceTagRef = useRef<HTMLSourceElement>(null);
-  const footballVideoBlobUrl = useSelector(
-    (state: RootState) => state.videos.footballBlobUrl,
+  const contentsBlobUrl = useSelector(
+    (state: RootState) => state.videos.contentsBlobUrl,
   );
 
   useEffect(() => {
     if (sourceTagRef.current) {
-      sourceTagRef.current.src = footballVideoBlobUrl;
+      sourceTagRef.current.src = contentsBlobUrl;
     }
-  }, [footballVideoBlobUrl]);
+  }, [contentsBlobUrl]);
 
   const handleMoveToScoreboard = () => {
     // 새 탭에서 스코어보드 페이지로 이동
@@ -26,16 +26,16 @@ const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
   };
 
   return (
-    <div className='board-football-content'>
-      <video className='football-video' muted autoPlay loop>
-        {/* {footballVideoBlobUrl && (
+    <div className='board-contents-content'>
+      <video className='contents-video' muted autoPlay loop>
+        {/* {contentsBlobUrl && (
           <source
             ref={sourceTagRef}
-            src={footballVideoBlobUrl}
+            src={contentsBlobUrl}
             type='video/mp4'
           ></source>
         )} */}
-        <source src={MediaUrls.footballVideoPreview}></source>
+        <source src={MediaUrls.contentsVideoPreview}></source>
       </video>
       <div className='display-board-btn-container'>
         <button
@@ -51,4 +51,4 @@ const BoardFootball = ({ closeWindow }: BoardFootballProps) => {
   );
 };
 
-export default BoardFootball;
+export default BoardContents;

@@ -1,31 +1,26 @@
 @import '@styles/color.scss';
 
 // Landscape mode
-.modal-overlay.desktop,
-.modal-overlay.portrait,
-.modal-overlay.landscape {
-  width: 100vw;
-  height: 100vh;
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 99;
+  z-index: 1000;
+  cursor: pointer;
 
   &.modal-enter {
     opacity: 0;
   }
 
-  &.modal-enter-active,
-  &.modal-enter-done {
+  &.modal-enter-active {
     opacity: 1;
+    transition: opacity 300ms ease-in;
   }
 
   &.modal-exit {
@@ -34,6 +29,34 @@
 
   &.modal-exit-active {
     opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.desktop {
+    width: 840px;
+    height: 640px;
+  }
+
+  &.portrait {
+    width: 340px;
+    height: 600px;
+  }
+
+  &.landscape {
+    width: 600px;
+    height: 400px;
   }
 }
 

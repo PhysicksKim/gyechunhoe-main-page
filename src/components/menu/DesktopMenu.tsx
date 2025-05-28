@@ -1,12 +1,13 @@
 import React from 'react';
 import MenuButton from '../common/Button';
-import BoardConcert from './BoardConcert';
-import BoardFootball from './BoardFootball';
+import BoardContents from './BoardContents';
 import { CSSTransition } from 'react-transition-group';
 import { DisplayType } from '../IndexPageRoot';
+import BoardConcert from './BoardConcert';
 
 export interface DesktopMenuProps {
-  handleModalOpen: () => void;
+  handleGyeProfileModalOpen: () => void;
+  handleContentModalOpen: () => void;
   handleCloseDisplayBoard: () => void;
   handleClick: (component: React.JSX.Element, type: DisplayType) => void;
   handleExited: () => void;
@@ -16,7 +17,8 @@ export interface DesktopMenuProps {
 }
 
 const DesktopMenu: React.FC<DesktopMenuProps> = ({
-  handleModalOpen,
+  handleGyeProfileModalOpen,
+  handleContentModalOpen,
   handleCloseDisplayBoard,
   handleClick,
   handleExited,
@@ -28,7 +30,10 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({
     <>
       <div className='main-content art-blossom-tree'>
         <div className='board art-board-buttons'>
-          <MenuButton type='gyechunhoe' onClick={handleModalOpen}></MenuButton>
+          <MenuButton
+            type='gyechunhoe'
+            onClick={handleGyeProfileModalOpen}
+          ></MenuButton>
           <MenuButton
             type='concert'
             onClick={() =>
@@ -38,15 +43,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({
               )
             }
           />
-          <MenuButton
-            type='football'
-            onClick={() =>
-              handleClick(
-                <BoardFootball closeWindow={handleCloseDisplayBoard} />,
-                'football',
-              )
-            }
-          />
+          <MenuButton type='contents' onClick={handleContentModalOpen} />
         </div>
         <CSSTransition
           in={showDisplayBoard}

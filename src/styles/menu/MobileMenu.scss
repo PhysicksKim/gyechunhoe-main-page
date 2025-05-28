@@ -81,7 +81,7 @@
     .mobile-menu-concert-btn {
       box-sizing: border-box;
     }
-    .mobile-menu-football-btn {
+    .mobile-menu-contents-btn {
       box-sizing: border-box;
     }
   }
@@ -107,7 +107,7 @@
 
 .mobile-menu-gyechunhoe-btn::before,
 .mobile-menu-concert-btn::before,
-.mobile-menu-football-btn::before {
+.mobile-menu-contents-btn::before {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -123,7 +123,7 @@
 
 .mobile-menu-gyechunhoe-btn.selected::before,
 .mobile-menu-concert-btn.selected::before,
-.mobile-menu-football-btn.selected::before {
+.mobile-menu-contents-btn.selected::before {
   width: 75%;
   opacity: 1;
 }

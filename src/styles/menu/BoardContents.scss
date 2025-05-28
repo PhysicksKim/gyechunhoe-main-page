@@ -1,6 +1,6 @@
 @import '@styles/ResponsiveVar.scss';
 
-.board-football-content {
+.board-contents-content {
   position: relative;
   box-sizing: border-box;
 
@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
 
-  .football-video {
+  .contents-video {
     position: absolute;
     box-sizing: border-box;
     border: 4px rgb(61, 27, 5) solid;
