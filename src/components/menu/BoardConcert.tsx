@@ -9,13 +9,13 @@ interface BoardConcertProps {
 }
 
 const BoardConcert = ({ closeWindow }: BoardConcertProps) => {
-  const concertVideoBlobUrl = useSelector(
-    (state: RootState) => state.videos.concertBlobUrl,
-  );
-
   const handleMoveToConcertYoutube = () => {
     // 새 탭에서 콘서트 유튜브 영상으로 이동
     window.open('https://www.youtube.com/watch?v=EPvIZU2S5gg', '_blank');
+  };
+
+  const handleMoveToBirthdayPartyChzzk = () => {
+    window.open('https://chzzk.naver.com/video/5212622', '_blank');
   };
 
   return (
@@ -26,14 +26,19 @@ const BoardConcert = ({ closeWindow }: BoardConcertProps) => {
       </video>
       <div className='display-board-btn-container'>
         <button
-          className='display-board-btn-move display-board-btn'
+          className='display-board-btn-concert display-board-btn'
           onClick={handleMoveToConcertYoutube}
         ></button>
         <button
-          className='display-board-btn-close display-board-btn'
-          onClick={closeWindow}
+          className='display-board-btn-birthday display-board-btn'
+          onClick={handleMoveToBirthdayPartyChzzk}
         ></button>
       </div>
+
+      <button
+        className='display-board-btn-close display-board-btn'
+        onClick={closeWindow}
+      ></button>
     </div>
   );
 };

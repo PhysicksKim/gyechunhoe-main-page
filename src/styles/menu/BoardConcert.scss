@@ -28,6 +28,25 @@
     height: var(--display-video-height);
   }
 
+  .display-board-btn-close {
+    position: absolute;
+    width: 4.3vh;
+    height: 3.6vh;
+    border-radius: 40%;
+    border: none;
+    top: 19.8vh;
+    right: 18.7vh;
+    background-color: transparent;
+    z-index: 1;
+
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.174);
+    }
+  }
+
   .display-board-btn-container {
     box-sizing: border-box;
     position: absolute;
@@ -37,20 +56,22 @@
 
     .display-board-btn {
       position: absolute;
-      width: var(--display-video-btn-width);
-      height: var(--display-video-btn-height);
+      width: var(--display-concert-btn-width);
+      height: var(--display-concert-btn-height);
       border-radius: 20px;
       border: none;
       background-color: transparent;
-      // background-color: #4417e66c;
 
+      transition: background-color 0.1s ease;
       z-index: 1;
     }
-    .display-board-btn-move {
-      left: var(--display-video-move-btn-left);
+    .display-board-btn-concert {
+      left: -3vh;
+      top: 0.4vh;
     }
-    .display-board-btn-close {
-      left: var(--display-video-close-btn-left);
+    .display-board-btn-birthday {
+      left: 14vh;
+      top: 0.4vh;
     }
 
     .display-board-btn:hover {
