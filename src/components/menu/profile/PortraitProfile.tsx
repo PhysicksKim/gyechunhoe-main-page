@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Swipe from 'react-easy-swipe';
 
-import Gye2d03 from '@assets/image/gyechunhoe_live2d_03_.png';
+import Gye2d03 from '@assets/image/gyechunhoe_live2d.webp';
 import chunsik from '@assets/image/chunsik_character.png';
 
 import '@styles/menu/profile/PortraitProfile.scss';

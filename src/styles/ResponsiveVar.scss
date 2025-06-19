@@ -49,62 +49,23 @@
   --display-video-btn-height: 7.4vh;
 
   // display concert button 위치
-  --display-concert-btn-width: 15.6vh;
-  --display-concert-btn-height: 6.7vh;
-
   --display-video-move-btn-left: 0vh;
   --display-video-close-btn-left: 15.2vh;
 
-  --display-concert-move-btn-left: -3vh;
+  // 콘서트 버튼 위치
+  --display-concert-concert-btn-left: -3vh;
+  --display-concert-concert-btn-top: 0.4vh;
+  --display-concert-birthday-btn-left: 15.6vh;
+  --display-concert-birthday-btn-top: 0.4vh;
+  --display-concert-close-btn-left: -32.6vh;
+  --display-concert-close-btn-top: -27.5vh;
+
+  // 콘서트 버튼 크기
+  --display-concert-btn-width: 17vh;
+  --display-concert-btn-height: 7.5vh;
+  --display-concert-close-btn-width: 4.5vh;
+  --display-concert-close-btn-height: 3.8vh;
 }
-
-// // 벚나무 도트
-// $blossom-tree-size: 70vh;
-// $blossom-tree-position-x: -1.6vh;
-// $blossom-tree-position-y: 0vh;
-
-// // 나무 판자 버튼 도트
-// $board-buttons-size: 70vh;
-// $board-buttons-position-x: -1.6vh;
-// $board-buttons-position-y: 0vh;
-
-// // 버튼 크기 조정
-// $btn-gyechunhoe-height: 5.7vh;
-// $btn-gyechunhoe-width: 22vh;
-// $btn-concert-height: $btn-gyechunhoe-height;
-// $btn-concert-width: 16.4vh;
-// $btn-contents-height: $btn-concert-height;
-// $btn-contents-width: $btn-concert-width;
-
-// // 버튼 위치 조정
-// $btn-gyechunhoe-top: 26.3vh;
-// $btn-gyechunhoe-left: 46vh;
-// $btn-concert-top: 33.8vh;
-// $btn-concert-left: $btn-gyechunhoe-left;
-// $btn-contents-top: 41.1vh;
-// $btn-contents-left: $btn-gyechunhoe-left;
-
-// // display 도트
-// $display-board-size: 44.2vh;
-// $display-board-position-x: 53.37vh;
-// $display-board-position-y: 12.1vh;
-
-// // display video 위치 크기
-// $display-video-top: 30.3vh;
-// $display-video-left: 75.6vh;
-// $display-video-height: 17vh;
-// $display-video-width: 30vh;
-
-// // display video container 위치
-// $display-video-container-top: 42.7vh;
-// $display-video-container-left: 60.8vh;
-
-// // display video button 위치
-// $display-video-btn-width: 13.8vh;
-// $display-video-btn-height: 7.4vh;
-
-// $display-video-move-btn-left: 0vh;
-// $display-video-close-btn-left: 15.2vh;
 
 // ----------------------------------------------
 /**
@@ -172,6 +133,20 @@
 
     --display-video-move-btn-left: 0vh;
     --display-video-close-btn-left: 13.8vh;
+
+    // 콘서트 버튼 위치
+    --display-concert-concert-btn-left: -3vh;
+    --display-concert-concert-btn-top: 0.4vh;
+    --display-concert-birthday-btn-left: 14vh;
+    --display-concert-birthday-btn-top: 0.4vh;
+    --display-concert-close-btn-left: -29.4vh;
+    --display-concert-close-btn-top: -24.8vh;
+
+    // 콘서트 버튼 크기
+    --display-concert-btn-width: 15.6vh;
+    --display-concert-btn-height: 6.7vh;
+    --display-concert-close-btn-width: 4.1vh;
+    --display-concert-close-btn-height: 3.4vh;
   }
 }
 
@@ -221,5 +196,19 @@
 
     --display-video-move-btn-left: 0vh;
     --display-video-close-btn-left: 13.8vh;
+
+    // 콘서트 버튼 위치
+    --display-concert-concert-btn-left: -2.7vh;
+    --display-concert-concert-btn-top: 0.4vh;
+    --display-concert-birthday-btn-left: 14.4vh;
+    --display-concert-birthday-btn-top: 0.4vh;
+    --display-concert-close-btn-left: -29.8vh;
+    --display-concert-close-btn-top: -24.8vh;
+
+    // 콘서트 버튼 크기
+    --display-concert-btn-width: 15.6vh;
+    --display-concert-btn-height: 6.7vh;
+    --display-concert-close-btn-width: 4.1vh;
+    --display-concert-close-btn-height: 3.4vh;
   }
 }

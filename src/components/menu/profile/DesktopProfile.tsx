@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Gye2d03 from '@assets/image/gyechunhoe_live2d_03_.png';
+import Gye2d03 from '@assets/image/gyechunhoe_live2d.webp';
 import chunsik from '@assets/image/chunsik_character.png';
 import chzzkLogo from '@assets/image/logo_chzzk.png';
 import youtubeLogo from '@assets/image/logo_youtube.png';

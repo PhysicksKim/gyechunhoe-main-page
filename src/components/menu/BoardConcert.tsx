@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '@styles/menu/BoardConcert.scss';
-import { useSelector } from 'react-redux';
-import { RootState } from '@src/redux/Store';
 import MediaUrls from '@src/class/MediaUrls';
 
 interface BoardConcertProps {
@@ -33,12 +31,11 @@ const BoardConcert = ({ closeWindow }: BoardConcertProps) => {
           className='display-board-btn-birthday display-board-btn'
           onClick={handleMoveToBirthdayPartyChzzk}
         ></button>
+        <button
+          className='display-board-btn-close display-board-btn'
+          onClick={closeWindow}
+        ></button>
       </div>
-
-      <button
-        className='display-board-btn-close display-board-btn'
-        onClick={closeWindow}
-      ></button>
     </div>
   );
 };

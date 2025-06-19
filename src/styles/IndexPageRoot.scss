@@ -29,7 +29,7 @@
 .main-content {
   position: relative;
   background-repeat: no-repeat;
-  background-image: url(/assets/image/tree01.png);
+  background-image: url(/assets/image/tree01.webp);
 
   height: 100%;
   width: 100%;
@@ -42,7 +42,8 @@
   // .art-board-buttons
   .board {
     position: absolute;
-    background-image: url(/assets/image/hangingBoard_3boards_onlyboard.png);
+    // 나무 판자 버튼 이미지
+    background-image: url(/assets/image/hangingBoard_3boards_onlyboard_x4.webp);
     background-repeat: no-repeat;
 
     height: 100%;
@@ -117,11 +118,11 @@
     // .art-display-board
     .display-board {
       &.concert {
-        background-image: url(/assets/image/displayboard_concert_x4.png);
+        background-image: url(/assets/image/displayboard_concert_x4.webp);
       }
-      &.contents {
-        background-image: url(/assets/image/displayboard_contents.png);
-      }
+      // &.contents {
+      //   background-image: url(/assets/image/displayboard_contents.png);
+      // }
       background-repeat: no-repeat;
       height: 100%;
       width: 100%;
@@ -136,8 +137,4 @@
 .btn-contents {
   top: var(--btn-contents-top);
   left: var(--btn-contents-left);
-
-  &.contents {
-    background-image: url(/assets/image/displayboard_contents.png);
-  }
 }

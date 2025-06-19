@@ -28,25 +28,6 @@
     height: var(--display-video-height);
   }
 
-  .display-board-btn-close {
-    position: absolute;
-    width: 4.3vh;
-    height: 3.6vh;
-    border-radius: 40%;
-    border: none;
-    top: 19.8vh;
-    right: 18.7vh;
-    background-color: transparent;
-    z-index: 1;
-
-    transition: background-color 0.1s ease;
-
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(255, 255, 255, 0.174);
-    }
-  }
-
   .display-board-btn-container {
     box-sizing: border-box;
     position: absolute;
@@ -54,24 +35,50 @@
     top: var(--display-video-container-top);
     left: var(--display-video-container-left);
 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
     .display-board-btn {
       position: absolute;
       width: var(--display-concert-btn-width);
       height: var(--display-concert-btn-height);
-      border-radius: 20px;
+      border-radius: 15%;
       border: none;
       background-color: transparent;
+      // background-color: #4417e66c;
 
       transition: background-color 0.1s ease;
       z-index: 1;
     }
     .display-board-btn-concert {
-      left: -3vh;
-      top: 0.4vh;
+      left: var(--display-concert-concert-btn-left);
+      top: var(--display-concert-concert-btn-top);
     }
     .display-board-btn-birthday {
-      left: 14vh;
-      top: 0.4vh;
+      left: var(--display-concert-birthday-btn-left);
+      top: var(--display-concert-birthday-btn-top);
+    }
+
+    .display-board-btn-close {
+      top: var(--display-concert-close-btn-top);
+      right: var(--display-concert-close-btn-left);
+
+      position: absolute;
+
+      // width: 4.3vh;
+      // height: 3.6vh;
+      width: var(--display-concert-close-btn-width);
+      height: var(--display-concert-close-btn-height);
+      border-radius: 40%;
+      border: none;
+      // background-color: #4417e66c;
+      z-index: 1;
+
+      transition: background-color 0.1s ease;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.174);
+      }
     }
 
     .display-board-btn:hover {

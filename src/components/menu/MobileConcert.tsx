@@ -2,7 +2,10 @@ import MediaUrls from '@src/class/MediaUrls';
 import React, { useEffect, useState } from 'react';
 import '@styles/menu/MobileDisplayContainer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBirthdayCake,
+  faUpRightFromSquare,
+} from '@fortawesome/free-solid-svg-icons';
 
 export interface MobileConcertProps {
   containerRef: React.RefObject<HTMLDivElement>;
@@ -22,6 +25,11 @@ const MobileConcert: React.FC<MobileConcertProps> = ({ containerRef }) => {
     window.open('https://www.youtube.com/watch?v=EPvIZU2S5gg', '_blank');
   };
 
+  const handleMoveToBirthday = () => {
+    // 새 탭에서 콘서트 유튜브 영상으로 이동
+    window.open('https://chzzk.naver.com/video/5212622', '_blank');
+  };
+
   return (
     <div
       ref={containerRef}
@@ -39,12 +47,21 @@ const MobileConcert: React.FC<MobileConcertProps> = ({ containerRef }) => {
           </video>
         </div>
       </div>
-      <div className='mobile-display-buttons mobile-concert-buttons'>
+      <div className='mobile-concert-link-button-wrapper '>
         <button
           className='mobile-display-link-btn mobile-concert-link-btn'
           onClick={handleMoveToConcertYoutube}
         >
           <FontAwesomeIcon icon={faUpRightFromSquare} />
+        </button>
+      </div>
+      <div className='mobile-birthday-link-button-wrapper'>
+        <button
+          className='mobile-display-link-btn mobile-birthday-link-btn'
+          onClick={handleMoveToBirthday}
+        >
+          <span>생일</span>
+          <FontAwesomeIcon icon={faBirthdayCake} />
         </button>
       </div>
     </div>
