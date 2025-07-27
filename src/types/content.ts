@@ -3,7 +3,8 @@ export type ContentType =
   | 'vcastle'
   | 'vsummit'
   | 'witchtalk'
-  | 'churak';
+  | 'churak'
+  | 'vrumarble';
 
 export interface Content {
   type: ContentType;

@@ -11,7 +11,7 @@ import {
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import { ContentType } from '@src/types/content';
-import { CONTENTS } from '@src/assets/contents';
+import { CONTENTS, DEFAULT_CONTENT } from '@src/assets/contents/contents';
 import {
   ModalContent,
   NavigationBar,
@@ -39,7 +39,8 @@ const ContentsModal: React.FC<ContentModalProps> = ({
   isPortrait,
   isMobileRatio,
 }) => {
-  const [selectedContent, setSelectedContent] = useState<ContentType>('jjak');
+  const [selectedContent, setSelectedContent] =
+    useState<ContentType>(DEFAULT_CONTENT);
   const [positionx, setPositionx] = useState<number>(0);
   const [cardCount, setCardCount] = useState<number>(1);
   const [endSwipe, setEndSwipe] = useState<boolean>(true);
@@ -52,7 +53,7 @@ const ContentsModal: React.FC<ContentModalProps> = ({
   );
 
   // 현재 선택된 컨텐츠의 이미지 개수 계산
-  const totalImages = currentContent ? currentContent.images.length : 0;
+  const totalImages = currentContent ? currentContent.images.length + 1 : 0; // 포스터 포함하여 +1
 
   useEffect(() => {
     const checkScrollButtons = () => {

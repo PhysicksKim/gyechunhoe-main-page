@@ -58,9 +58,45 @@ import churak08 from '@assets/image/contents/churak/churak_08.webp';
 import churak09 from '@assets/image/contents/churak/churak_09.webp';
 import churak10 from '@assets/image/contents/churak/churak_10.webp';
 
-import { Content } from '@src/types/content';
+// vrumarble
+import vrumarblePoster from '@assets/image/contents/vrumarble/vrumarble_00_poster.webp';
+import vrumarble01 from '@assets/image/contents/vrumarble/vrumarble_01.webp';
+import vrumarble02 from '@assets/image/contents/vrumarble/vrumarble_02.webp';
+import vrumarble03 from '@assets/image/contents/vrumarble/vrumarble_03.webp';
+import vrumarble04 from '@assets/image/contents/vrumarble/vrumarble_04.webp';
+import vrumarble05 from '@assets/image/contents/vrumarble/vrumarble_05.webp';
+import vrumarble06 from '@assets/image/contents/vrumarble/vrumarble_06.webp';
+import vrumarble07 from '@assets/image/contents/vrumarble/vrumarble_07.webp';
+import vrumarble08 from '@assets/image/contents/vrumarble/vrumarble_08.webp';
+import vrumarble09 from '@assets/image/contents/vrumarble/vrumarble_09.webp';
+import vrumarble10 from '@assets/image/contents/vrumarble/vrumarble_10.webp';
+import vrumarble11 from '@assets/image/contents/vrumarble/vrumarble_11.webp';
+import vrumarble12 from '@assets/image/contents/vrumarble/vrumarble_12.webp';
+
+import { Content, ContentType } from '@src/types/content';
+
+export const DEFAULT_CONTENT: ContentType = 'vrumarble';
 
 export const CONTENTS: Content[] = [
+  {
+    type: 'vrumarble',
+    name: '버루마블',
+    poster: vrumarblePoster,
+    images: [
+      vrumarble01,
+      vrumarble02,
+      vrumarble03,
+      vrumarble04,
+      vrumarble05,
+      vrumarble06,
+      vrumarble07,
+      vrumarble08,
+      vrumarble09,
+      vrumarble10,
+      vrumarble12,
+      // vrumarble12,
+    ],
+  },
   {
     type: 'jjak',
     name: '버츄얼 애정촌 짝지',
