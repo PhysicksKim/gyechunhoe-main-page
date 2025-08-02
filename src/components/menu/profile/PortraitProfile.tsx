@@ -19,6 +19,7 @@ import {
   ContentCounterWrapper,
   ContentCounter,
 } from './PortraitProfileStyledComps';
+import { INTRODUCE_TEXT } from '@src/assets/contents/contents';
 
 export interface PortraitProfileProps {
   animateClass: string;
@@ -38,11 +39,7 @@ const PortraitProfile: React.FC<PortraitProfileProps> = ({
         ></div>
         <div className='gye-profile-description-wrapper'>
           <div className='gye-profile-description'>
-            <p>
-              치지직에서 다양한 컨텐츠를 하고 있는 버츄얼 스트리머 입니다. 주력
-              컨텐츠로는 PPT, VR을 이용한 예능쇼, 축구 중계, 종합게임을 하고
-              있습니다.
-            </p>
+            <p>{INTRODUCE_TEXT}</p>
           </div>
         </div>
       </div>

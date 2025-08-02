@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+} from 'react';
 import Swipe from 'react-easy-swipe';
 import { debounce } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,6 +38,136 @@ interface ContentModalProps {
   isMobileRatio: boolean;
 }
 
+// NavigationBar 컴포넌트를 메모이제이션 - selectedContent가 변경될 때만 리렌더링
+const MemoizedNavigationBar = React.memo<{
+  selectedContent: ContentType;
+  navItemsRef: React.RefObject<HTMLDivElement>;
+  showLeftButton: boolean;
+  showRightButton: boolean;
+  handleNavClick: (type: ContentType) => void;
+  handleNavSwipe: (direction: 'left' | 'right') => void;
+  handleNavScroll: () => void;
+}>(
+  ({
+    selectedContent,
+    navItemsRef,
+    showLeftButton,
+    showRightButton,
+    handleNavClick,
+    handleNavSwipe,
+    handleNavScroll,
+  }) => (
+    <NavigationBar>
+      <div ref={navItemsRef} className='nav-items' onScroll={handleNavScroll}>
+        {CONTENTS.map((content) => (
+          <NavigationItem
+            key={content.type}
+            $isActive={content.type === selectedContent}
+            onClick={() => handleNavClick(content.type)}
+            data-type={content.type}
+          >
+            {content.name}
+          </NavigationItem>
+        ))}
+      </div>
+
+      <div className='nav-slide-buttons'>
+        <div
+          className={`nav-slide-left ${showLeftButton ? 'visible' : ''}`}
+          onClick={() => handleNavSwipe('left')}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </div>
+        <div
+          className={`nav-slide-right ${showRightButton ? 'visible' : ''}`}
+          onClick={() => handleNavSwipe('right')}
+        >
+          <FontAwesomeIcon icon={faChevronRight} />
+        </div>
+      </div>
+    </NavigationBar>
+  ),
+);
+
+MemoizedNavigationBar.displayName = 'MemoizedNavigationBar';
+
+// SlideButtons 컴포넌트를 메모이제이션 - cardCount가 변경될 때만 리렌더링
+const MemoizedSlideButtons = React.memo<{
+  cardCount: number;
+  totalImages: number;
+  onClickLeft: () => void;
+  onClickRight: () => void;
+}>(({ cardCount, totalImages, onClickLeft, onClickRight }) => (
+  <SlideButtons>
+    <div className='slide-button-left' onClick={onClickLeft}>
+      <FontAwesomeIcon icon={faCaretLeft} />
+    </div>
+    <div className='slide-button-right' onClick={onClickRight}>
+      <FontAwesomeIcon icon={faCaretRight} />
+    </div>
+  </SlideButtons>
+));
+
+MemoizedSlideButtons.displayName = 'MemoizedSlideButtons';
+
+// ContentCounter 컴포넌트를 메모이제이션 - cardCount가 변경될 때만 리렌더링
+const MemoizedContentCounter = React.memo<{
+  totalImages: number;
+  cardCount: number;
+  handleCounterClick: (index: number) => void;
+}>(({ totalImages, cardCount, handleCounterClick }) => (
+  <ContentCounterWrapper key={cardCount}>
+    {Array.from({ length: totalImages }).map((_, index) => (
+      <ContentCounter
+        key={index}
+        $isActive={index + 1 === cardCount}
+        onClick={() => handleCounterClick(index)}
+      />
+    ))}
+  </ContentCounterWrapper>
+));
+
+MemoizedContentCounter.displayName = 'MemoizedContentCounter';
+
+// ContentBody 컴포넌트를 메모이제이션 - 스와이프 중에도 이미지만 업데이트
+const MemoizedContentBody = React.memo<{
+  currentContent: any;
+  endSwipe: boolean;
+  positionx: number;
+  cardCount: number;
+  onSwipeMove: (position: { x: number }) => void;
+  onSwipeEnd: () => void;
+}>(
+  ({
+    currentContent,
+    endSwipe,
+    positionx,
+    cardCount,
+    onSwipeMove,
+    onSwipeEnd,
+  }) => (
+    <ContentBody>
+      <Swipe
+        className='swipe-div'
+        allowMouseEvents={true}
+        onSwipeMove={onSwipeMove}
+        onSwipeEnd={onSwipeEnd}
+      >
+        {currentContent && (
+          <ContentSlide
+            content={currentContent}
+            endSwipe={endSwipe}
+            positionx={positionx}
+            cardCount={cardCount}
+          />
+        )}
+      </Swipe>
+    </ContentBody>
+  ),
+);
+
+MemoizedContentBody.displayName = 'MemoizedContentBody';
+
 const ContentsModal: React.FC<ContentModalProps> = ({
   isOpen,
   handleModalClose,
@@ -48,22 +184,28 @@ const ContentsModal: React.FC<ContentModalProps> = ({
   const [showRightButton, setShowRightButton] = useState(false);
   const navItemsRef = useRef<HTMLDivElement>(null);
 
-  const currentContent = CONTENTS.find(
-    (content) => content.type === selectedContent,
+  // currentContent를 useMemo로 메모이제이션 - selectedContent가 변경될 때만 재계산
+  const currentContent = useMemo(
+    () => CONTENTS.find((content) => content.type === selectedContent),
+    [selectedContent],
   );
 
-  // 현재 선택된 컨텐츠의 이미지 개수 계산
-  const totalImages = currentContent ? currentContent.images.length + 1 : 0; // 포스터 포함하여 +1
+  // totalImages를 useMemo로 메모이제이션 - currentContent가 변경될 때만 재계산
+  const totalImages = useMemo(
+    () => (currentContent ? currentContent.images.length + 1 : 0),
+    [currentContent],
+  );
+
+  // 스크롤 버튼 체크 함수를 useCallback으로 메모이제이션
+  const checkScrollButtons = useCallback(() => {
+    if (navItemsRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = navItemsRef.current;
+      setShowLeftButton(scrollLeft > 0);
+      setShowRightButton(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  }, []);
 
   useEffect(() => {
-    const checkScrollButtons = () => {
-      if (navItemsRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = navItemsRef.current;
-        setShowLeftButton(scrollLeft > 0);
-        setShowRightButton(scrollLeft < scrollWidth - clientWidth - 1);
-      }
-    };
-
     const debouncedCheckScrollButtons = debounce(checkScrollButtons, 100);
 
     // 초기 실행
@@ -76,18 +218,18 @@ const ContentsModal: React.FC<ContentModalProps> = ({
       window.removeEventListener('resize', debouncedCheckScrollButtons);
       debouncedCheckScrollButtons.cancel(); // debounce 취소
     };
-  }, []);
+  }, [checkScrollButtons]);
 
-  // 스크롤 이벤트 핸들러
-  const handleNavScroll = () => {
+  // 스크롤 이벤트 핸들러를 useCallback으로 메모이제이션
+  const handleNavScroll = useCallback(() => {
     if (navItemsRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = navItemsRef.current;
       setShowLeftButton(scrollLeft > 0);
       setShowRightButton(scrollLeft < scrollWidth - clientWidth - 1); // 1px 여유 추가
     }
-  };
+  }, []);
 
-  const scrollToContent = (type: ContentType) => {
+  const scrollToContent = useCallback((type: ContentType) => {
     if (navItemsRef.current) {
       const selectedItem = navItemsRef.current.querySelector(
         `[data-type="${type}"]`,
@@ -100,25 +242,30 @@ const ContentsModal: React.FC<ContentModalProps> = ({
         });
       }
     }
-  };
+  }, []);
 
-  const onSwipeMove = (position: { x: number }) => {
-    setEndSwipe(false);
-    if (cardCount === 1 && position.x < 0) {
-      setPositionx(() => position.x);
-      return;
-    }
-    if (cardCount > 1 && cardCount < totalImages) {
-      setPositionx(() => position.x);
-      return;
-    }
-    if (cardCount === totalImages && position.x > 0) {
-      setPositionx(() => position.x);
-      return;
-    }
-  };
+  // 스와이프 중에는 이미지만 업데이트하도록 최적화
+  const onSwipeMove = useCallback(
+    (position: { x: number }) => {
+      setEndSwipe(false);
+      if (cardCount === 1 && position.x < 0) {
+        setPositionx(() => position.x);
+        return;
+      }
+      if (cardCount > 1 && cardCount < totalImages) {
+        setPositionx(() => position.x);
+        return;
+      }
+      if (cardCount === totalImages && position.x > 0) {
+        setPositionx(() => position.x);
+        return;
+      }
+    },
+    [cardCount, totalImages],
+  );
 
-  const onSwipeEnd = () => {
+  // 스와이프가 끝난 후에만 다른 요소들이 리렌더링되도록 최적화
+  const onSwipeEnd = useCallback(() => {
     if (positionx < -20) {
       setCardCount((cardCount) => Math.min(cardCount + 1, totalImages));
     }
@@ -127,27 +274,30 @@ const ContentsModal: React.FC<ContentModalProps> = ({
     }
     setPositionx(() => 0);
     setEndSwipe(true);
-  };
+  }, [positionx, totalImages]);
 
-  const onClickLeft = () => {
+  const onClickLeft = useCallback(() => {
     if (cardCount > 1) {
       setCardCount((cardCount) => cardCount - 1);
     }
-  };
+  }, [cardCount]);
 
-  const onClickRight = () => {
+  const onClickRight = useCallback(() => {
     if (cardCount < totalImages) {
       setCardCount((cardCount) => cardCount + 1);
     }
-  };
+  }, [cardCount, totalImages]);
 
-  const handleNavClick = (type: ContentType) => {
-    setSelectedContent(type);
-    setCardCount(1);
-    scrollToContent(type);
-  };
+  const handleNavClick = useCallback(
+    (type: ContentType) => {
+      setSelectedContent(type);
+      setCardCount(1);
+      scrollToContent(type);
+    },
+    [scrollToContent],
+  );
 
-  const handleNavSwipe = (direction: 'left' | 'right') => {
+  const handleNavSwipe = useCallback((direction: 'left' | 'right') => {
     if (navItemsRef.current) {
       const scrollAmount = 200; // 스크롤할 픽셀 양
       const newScrollLeft =
@@ -160,43 +310,24 @@ const ContentsModal: React.FC<ContentModalProps> = ({
         behavior: 'smooth',
       });
     }
-  };
+  }, []);
 
-  const handleCounterClick = (index: number) => {
+  const handleCounterClick = useCallback((index: number) => {
     setCardCount(index + 1);
-  };
+  }, []);
 
   return (
     <ModalContent>
-      <NavigationBar>
-        <div ref={navItemsRef} className='nav-items' onScroll={handleNavScroll}>
-          {CONTENTS.map((content) => (
-            <NavigationItem
-              key={content.type}
-              $isActive={content.type === selectedContent}
-              onClick={() => handleNavClick(content.type)}
-              data-type={content.type}
-            >
-              {content.name}
-            </NavigationItem>
-          ))}
-        </div>
+      <MemoizedNavigationBar
+        selectedContent={selectedContent}
+        navItemsRef={navItemsRef}
+        showLeftButton={showLeftButton}
+        showRightButton={showRightButton}
+        handleNavClick={handleNavClick}
+        handleNavSwipe={handleNavSwipe}
+        handleNavScroll={handleNavScroll}
+      />
 
-        <div className='nav-slide-buttons'>
-          <div
-            className={`nav-slide-left ${showLeftButton ? 'visible' : ''}`}
-            onClick={() => handleNavSwipe('left')}
-          >
-            <FontAwesomeIcon icon={faChevronLeft} />
-          </div>
-          <div
-            className={`nav-slide-right ${showRightButton ? 'visible' : ''}`}
-            onClick={() => handleNavSwipe('right')}
-          >
-            <FontAwesomeIcon icon={faChevronRight} />
-          </div>
-        </div>
-      </NavigationBar>
       <ContentsModalWrapper
         $showBtn={isMobileRatio || isSmallViewport}
         $breakPoint={750}
@@ -206,44 +337,29 @@ const ContentsModal: React.FC<ContentModalProps> = ({
         </div>
       </ContentsModalWrapper>
 
-      <ContentBody>
-        <Swipe
-          className='swipe-div'
-          allowMouseEvents={true}
-          onSwipeMove={onSwipeMove}
-          onSwipeEnd={onSwipeEnd}
-        >
-          {currentContent && (
-            <ContentSlide
-              content={currentContent}
-              endSwipe={endSwipe}
-              positionx={positionx}
-              cardCount={cardCount}
-            />
-          )}
-        </Swipe>
-      </ContentBody>
+      <MemoizedContentBody
+        currentContent={currentContent}
+        endSwipe={endSwipe}
+        positionx={positionx}
+        cardCount={cardCount}
+        onSwipeMove={onSwipeMove}
+        onSwipeEnd={onSwipeEnd}
+      />
 
-      <SlideButtons>
-        <div className='slide-button-left' onClick={onClickLeft}>
-          <FontAwesomeIcon icon={faCaretLeft} />
-        </div>
-        <div className='slide-button-right' onClick={onClickRight}>
-          <FontAwesomeIcon icon={faCaretRight} />
-        </div>
-      </SlideButtons>
+      <MemoizedSlideButtons
+        cardCount={cardCount}
+        totalImages={totalImages}
+        onClickLeft={onClickLeft}
+        onClickRight={onClickRight}
+      />
 
-      <ContentCounterWrapper key={cardCount}>
-        {Array.from({ length: totalImages }).map((_, index) => (
-          <ContentCounter
-            key={index}
-            $isActive={index + 1 === cardCount}
-            onClick={() => handleCounterClick(index)}
-          />
-        ))}
-      </ContentCounterWrapper>
+      <MemoizedContentCounter
+        totalImages={totalImages}
+        cardCount={cardCount}
+        handleCounterClick={handleCounterClick}
+      />
     </ModalContent>
   );
 };
 
-export default ContentsModal;
+export default React.memo(ContentsModal);

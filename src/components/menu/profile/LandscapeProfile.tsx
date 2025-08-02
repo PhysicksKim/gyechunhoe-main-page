@@ -5,6 +5,7 @@ import chunsik from '@assets/image/chunsik_character.png';
 import '@styles/menu/profile/LandscapeProfile.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { INTRODUCE_TEXT } from '@src/assets/contents/contents';
 
 export interface LandscapeProfileProps {
   animateClass: string;
@@ -32,11 +33,7 @@ const LandscapeProfile: React.FC<LandscapeProfileProps> = ({
             <FontAwesomeIcon icon={faClose} />
           </div>
           <div className='gye-profile-description'>
-            <p>
-              치지직에서 다양한 컨텐츠를 하고 있는 버츄얼 스트리머 입니다. 주력
-              컨텐츠로는 PPT, VR을 이용한 예능쇼, 축구 중계, 종합게임을 하고
-              있습니다.
-            </p>
+            <p>{INTRODUCE_TEXT}</p>
           </div>
           <div className='gye-profile-bio'>
             <div className='profile-item profile-item-01 birth-wrapper'>

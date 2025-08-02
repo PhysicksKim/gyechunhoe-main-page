@@ -179,3 +179,8 @@ export const CONTENTS: Content[] = [
     ],
   },
 ];
+
+export const INTRODUCE_TEXT = `
+치지직에서 다양한 컨텐츠를 하고 있는 버츄얼 스트리머 입니다. 
+주력 컨텐츠로는 PPT, VR을 이용한 예능쇼, 종합게임을 하고 있습니다.
+`;

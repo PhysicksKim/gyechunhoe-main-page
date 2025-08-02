@@ -49,28 +49,27 @@ const SlideItem = styled.div`
   }
 `;
 
-const ContentSlide: React.FC<ContentSlideProps> = ({
-  content,
-  endSwipe,
-  positionx,
-  cardCount,
-}) => {
-  return (
-    <SlideWrapper
-      $endSwipe={endSwipe}
-      $positionx={positionx}
-      $cardCount={cardCount}
-    >
-      <SlideItem key={`${content.name}-poster`}>
-        <img src={content.poster} alt={content.name} />
-      </SlideItem>
-      {content.images.map((image, index) => (
-        <SlideItem key={index + content.name}>
-          <img src={image} alt={`${content.name} - ${index + 1}`} />
+const ContentSlide: React.FC<ContentSlideProps> = React.memo(
+  ({ content, endSwipe, positionx, cardCount }) => {
+    return (
+      <SlideWrapper
+        $endSwipe={endSwipe}
+        $positionx={positionx}
+        $cardCount={cardCount}
+      >
+        <SlideItem key={`${content.name}-poster`}>
+          <img src={content.poster} alt={content.name} />
         </SlideItem>
-      ))}
-    </SlideWrapper>
-  );
-};
+        {content.images.map((image, index) => (
+          <SlideItem key={index + content.name}>
+            <img src={image} alt={`${content.name} - ${index + 1}`} />
+          </SlideItem>
+        ))}
+      </SlideWrapper>
+    );
+  },
+);
+
+ContentSlide.displayName = 'ContentSlide';
 
 export default ContentSlide;
