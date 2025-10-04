@@ -18,11 +18,11 @@ module.exports = {
       'process.env.API_URL':
         process.env.SAME_ORIGIN === 'true'
           ? JSON.stringify('')
-          : JSON.stringify('https://gyechunhoe.com'),
+          : JSON.stringify('https://gyechune.com'),
       'process.env.WEBSOCKET_URL':
         process.env.SAME_ORIGIN === 'true'
           ? JSON.stringify('')
-          : JSON.stringify('wss://gyechunhoe.com'),
+          : JSON.stringify('wss://gyechune.com'),
     }),
   ],
   resolve: {

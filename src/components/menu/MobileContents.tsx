@@ -18,7 +18,7 @@ const MobileContents: React.FC<MobileContentsProps> = ({ containerRef }) => {
   }, []);
 
   const handleMoveToScoreboard = () => {
-    window.open('https://gyechunhoe.com/scoreboard', '_blank');
+    window.open('https://gyechune.com/scoreboard', '_blank');
   };
 
   return (
@@ -34,7 +34,7 @@ const MobileContents: React.FC<MobileContentsProps> = ({ containerRef }) => {
             autoPlay
             loop
           >
-            <source src={MediaUrls.contentsVideoPreview}></source>
+            {/* <source src={MediaUrls.contentsVideoPreview}></source> */}
           </video>
         </div>
       </div>

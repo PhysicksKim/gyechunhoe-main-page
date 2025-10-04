@@ -31,7 +31,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({
       <div className='main-content art-blossom-tree'>
         <div className='board art-board-buttons'>
           <MenuButton
-            type='gyechunhoe'
+            type='gyechune'
             onClick={handleGyeProfileModalOpen}
           ></MenuButton>
           <MenuButton

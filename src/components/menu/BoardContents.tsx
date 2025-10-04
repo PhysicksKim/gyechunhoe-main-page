@@ -22,7 +22,7 @@ const BoardContents = ({ closeWindow }: BoardContentsProps) => {
 
   const handleMoveToScoreboard = () => {
     // 새 탭에서 스코어보드 페이지로 이동
-    window.open('https://gyechunhoe.com/scoreboard', '_blank');
+    window.open('https://gyechune.com/scoreboard', '_blank');
   };
 
   return (
@@ -35,7 +35,7 @@ const BoardContents = ({ closeWindow }: BoardContentsProps) => {
             type='video/mp4'
           ></source>
         )} */}
-        <source src={MediaUrls.contentsVideoPreview}></source>
+        {/* <source src={MediaUrls.contentsVideoPreview}></source> */}
       </video>
       <div className='display-board-btn-container'>
         <button

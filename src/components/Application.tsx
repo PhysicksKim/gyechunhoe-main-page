@@ -5,8 +5,8 @@ import IndexPageRoot from './IndexPageRoot';
 import '@styles/Application.scss';
 import '@styles/Fonts.scss';
 
-import GyeSanabiMp3 from '@assets/audio/gyechunhoe-SanabiOST.mp3';
-import GyeSanabiMp3Re2 from '@assets/audio/gyechunhoe-sanabiost_re2.mp3';
+import GyeSanabiMp3 from '@assets/audio/gyechune-SanabiOST.mp3';
+import GyeSanabiMp3Re2 from '@assets/audio/gyechune-sanabiost_re2.mp3';
 
 import MediaPreloader from './MediaPreloader';
 import { useMediaQuery } from 'react-responsive';

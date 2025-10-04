@@ -2,7 +2,7 @@
 @import '@styles/ResponsiveVar.scss';
 
 .main-background {
-  background-image: url(https://static.gyechunhoe.com/etc/gyechunhoe-conertsanabi-1080p.gif);
+  background-image: url(https://static.gyechune.com/etc/gyechune-conertsanabi-1080p.gif);
   background-size: cover;
   background-position-x: center;
   background-position-y: bottom;
@@ -43,7 +43,7 @@
   .board {
     position: absolute;
     // 나무 판자 버튼 이미지
-    background-image: url(/assets/image/hangingBoard_3boards_onlyboard_x4.webp);
+    background-image: url(/assets/image/hangingBoard_3boards.webp);
     background-repeat: no-repeat;
 
     height: 100%;
@@ -53,7 +53,7 @@
     background-position: var(--board-buttons-position-x)
       var(--board-buttons-position-y);
 
-    .btn-gyechunhoe,
+    .btn-gyechune,
     .btn-concert,
     .btn-contents {
       position: absolute;
@@ -82,9 +82,9 @@
     }
 
     // 버튼 크기 조정
-    .btn-gyechunhoe {
-      height: var(--btn-gyechunhoe-height);
-      width: var(--btn-gyechunhoe-width);
+    .btn-gyechune {
+      height: var(--btn-gyechune-height);
+      width: var(--btn-gyechune-width);
     }
     .btn-concert,
     .btn-contents {
@@ -93,9 +93,9 @@
     }
 
     // 버튼 위치 조정
-    .btn-gyechunhoe {
-      top: var(--btn-gyechunhoe-top);
-      left: var(--btn-gyechunhoe-left);
+    .btn-gyechune {
+      top: var(--btn-gyechune-top);
+      left: var(--btn-gyechune-left);
     }
     .btn-concert {
       top: var(--btn-concert-top);

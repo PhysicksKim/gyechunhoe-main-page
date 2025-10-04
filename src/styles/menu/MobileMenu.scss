@@ -105,7 +105,7 @@
   user-select: none;
 }
 
-.mobile-menu-gyechunhoe-btn::before,
+.mobile-menu-gyechune-btn::before,
 .mobile-menu-concert-btn::before,
 .mobile-menu-contents-btn::before {
   content: '';
@@ -121,7 +121,7 @@
   opacity: 0;
 }
 
-.mobile-menu-gyechunhoe-btn.selected::before,
+.mobile-menu-gyechune-btn.selected::before,
 .mobile-menu-concert-btn.selected::before,
 .mobile-menu-contents-btn.selected::before {
   width: 75%;

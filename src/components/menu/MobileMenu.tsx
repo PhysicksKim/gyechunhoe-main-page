@@ -115,7 +115,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     }
   };
 
-  const handleGyeChunHoeClick = () => {
+  const handleGyechuneClick = () => {
     handleGyeProfileModalOpen();
     setSelectedMenu('profile');
     toggleDisplayMenu(null, '', '');
@@ -137,10 +137,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         </div>
         <div className='mobile-menu-right'>
           <div
-            className={`mobile-menu-btn mobile-menu-gyechunhoe-btn ${
+            className={`mobile-menu-btn mobile-menu-gyechune-btn ${
               selectedMenu === 'profile' ? 'selected' : ''
             }`}
-            onClick={() => handleGyeChunHoeClick()}
+            onClick={() => handleGyechuneClick()}
           >
             소개
           </div>
