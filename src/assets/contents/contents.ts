@@ -73,11 +73,47 @@ import vrumarble10 from '@assets/image/contents/vrumarble/vrumarble_10.webp';
 import vrumarble11 from '@assets/image/contents/vrumarble/vrumarble_11.webp';
 import vrumarble12 from '@assets/image/contents/vrumarble/vrumarble_12.webp';
 
+// virtualsunday
+import virtualsundayPoster from '@assets/image/contents/sundayvirtual/sundayvirtual_00_poster.webp';
+import virtualsunday01 from '@assets/image/contents/sundayvirtual/sundayvirtual_01.webp';
+import virtualsunday02 from '@assets/image/contents/sundayvirtual/sundayvirtual_02.webp';
+import virtualsunday03 from '@assets/image/contents/sundayvirtual/sundayvirtual_03.webp';
+import virtualsunday04 from '@assets/image/contents/sundayvirtual/sundayvirtual_04.webp';
+import virtualsunday05 from '@assets/image/contents/sundayvirtual/sundayvirtual_05.webp';
+import virtualsunday06 from '@assets/image/contents/sundayvirtual/sundayvirtual_06.webp';
+import virtualsunday07 from '@assets/image/contents/sundayvirtual/sundayvirtual_07.webp';
+import virtualsunday08 from '@assets/image/contents/sundayvirtual/sundayvirtual_08.webp';
+import virtualsunday09 from '@assets/image/contents/sundayvirtual/sundayvirtual_09.webp';
+import virtualsunday10 from '@assets/image/contents/sundayvirtual/sundayvirtual_10.webp';
+import virtualsunday11 from '@assets/image/contents/sundayvirtual/sundayvirtual_11.webp';
+import virtualsunday12 from '@assets/image/contents/sundayvirtual/sundayvirtual_12.webp';
+import virtualsunday13 from '@assets/image/contents/sundayvirtual/sundayvirtual_13.webp';
+
 import { Content, ContentType } from '@src/types/content';
 
-export const DEFAULT_CONTENT: ContentType = 'vrumarble';
+export const DEFAULT_CONTENT: ContentType = 'sundayvirtual';
 
 export const CONTENTS: Content[] = [
+  {
+    type: 'sundayvirtual',
+    name: '일요일 일요일은 버츄얼',
+    poster: virtualsundayPoster,
+    images: [
+      virtualsunday01,
+      virtualsunday02,
+      virtualsunday03,
+      virtualsunday04,
+      virtualsunday05,
+      virtualsunday06,
+      virtualsunday07,
+      virtualsunday08,
+      virtualsunday09,
+      virtualsunday10,
+      virtualsunday11,
+      virtualsunday12,
+      virtualsunday13,
+    ],
+  },
   {
     type: 'vrumarble',
     name: '버루마블',

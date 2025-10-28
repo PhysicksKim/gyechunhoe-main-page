@@ -1,4 +1,5 @@
 export type ContentType =
+  | 'sundayvirtual'
   | 'jjak'
   | 'vcastle'
   | 'vsummit'

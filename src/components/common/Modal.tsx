@@ -44,43 +44,11 @@ const Modal: React.FC<ModalProps> = ({
   const modalContentRef = useRef<HTMLDivElement>(null);
   const modalOverlayRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseDown = (e: MouseEvent) => {
-    if (!modalContentRef.current) return;
-
-    const { clientX, clientY } = e;
-    const { left, right, top, bottom } =
-      modalContentRef.current.getBoundingClientRect();
-
-    if (
-      clientX < left ||
-      clientX > right ||
-      clientY < top ||
-      clientY > bottom
-    ) {
-      onClose();
-    }
+  const handleOverlayMouseDown = (e: MouseEvent) => {
+    // 오버레이 영역 클릭 시에만 닫히도록 처리
+    // 컨텐츠 내부 클릭은 아래 stopPropagation으로 막는다
+    onClose();
   };
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener(
-        'mousedown',
-        handleMouseDown as unknown as EventListener,
-      );
-    } else {
-      document.removeEventListener(
-        'mousedown',
-        handleMouseDown as unknown as EventListener,
-      );
-    }
-
-    return () => {
-      document.removeEventListener(
-        'mousedown',
-        handleMouseDown as unknown as EventListener,
-      );
-    };
-  }, [isOpen]);
 
   const appendResponsiveClass = (
     isSmallViewport: boolean,
@@ -137,11 +105,18 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <CSSTransition in={isOpen} timeout={300} classNames='modal' unmountOnExit>
-      <div ref={modalOverlayRef} className='modal-overlay'>
+      <div
+        ref={modalOverlayRef}
+        className='modal-overlay'
+        onMouseDown={
+          handleOverlayMouseDown as unknown as React.MouseEventHandler<HTMLDivElement>
+        }
+      >
         <div
           ref={modalContentRef}
           className='modal-content'
           style={getModalContentStyle()}
+          onMouseDown={(e) => e.stopPropagation()}
         >
           {children}
         </div>
